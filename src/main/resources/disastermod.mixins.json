@@ -13,6 +13,7 @@
     "accessor.HumanoidModelAccessor",
     "client.FontMixin",
     "client.FontStringRenderOutputMixin",
+    "client.GuiMixin",
     "client.HumanoidModelMixin",
     "client.MinecraftMixin",
     "client.PlayerModelMixin",

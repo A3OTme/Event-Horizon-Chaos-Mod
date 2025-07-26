@@ -80,6 +80,7 @@ public class EventsRegistry {
         DISASTER_EVENTS.add(new CursedVaultEvent());
         DISASTER_EVENTS.add(new OnlySwimmingPoseEvent());
         DISASTER_EVENTS.add(new BlindRageEvent());
+        DISASTER_EVENTS.add(new ShakingCrosshairEvent());
 
         for (AbstractEvent event : DISASTER_EVENTS) {
             EVENT_MAP.put(event.getConfigName(), event);

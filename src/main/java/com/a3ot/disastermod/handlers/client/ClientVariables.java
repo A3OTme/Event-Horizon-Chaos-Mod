@@ -7,7 +7,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 
 import java.lang.reflect.Field;
-import java.util.Locale;
 
 @EventBusSubscriber(modid = Disastermod.MODID, value = Dist.CLIENT)
 public class ClientVariables {
@@ -24,7 +23,8 @@ public class ClientVariables {
             pitchMax,
             pitchMin,
             smoothCamera,
-            onlySwimmingActive
+            onlySwimmingActive,
+            tremblingCrosshair
                     = false;
 
     @SubscribeEvent
@@ -46,6 +46,7 @@ public class ClientVariables {
         pitchMin =
         smoothCamera =
         onlySwimmingActive =
+        tremblingCrosshair =
         false;
     }
 
@@ -54,7 +55,6 @@ public class ClientVariables {
             Field field = ClientVariables.class.getDeclaredField(variableName);
             if (field.getType() == boolean.class) {
                 field.setBoolean(null, value);
-                Disastermod.LOGGER.debug("Client variable '{}' set to {}", variableName, value);
             } else {
                 Disastermod.LOGGER.warn("Field '{}' is not of type boolean", variableName);
             }
