@@ -1,0 +1,940 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 32,
+                "min": 16
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:coal",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 32,
+                "min": 16
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:emerald",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 16,
+                "min": 8
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:gold_ingot",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 32,
+                "min": 16
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:iron_ingot",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 16,
+                "min": 8
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:diamond",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 32,
+                "min": 16
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:cooked_beef",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 32,
+                "min": 16
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:cooked_porkchop",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 16,
+                "min": 8
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:netherite_upgrade_smithing_template",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 32,
+                "min": 16
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:spectral_arrow",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 16,
+                "min": 8
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:wind_charge",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 8,
+                "min": 4
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:golden_apple",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 32,
+                "min": 16
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:golden_carrot",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 8,
+                "min": 4
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:netherite_ingot",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:totem_of_undying",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "disastermod:enchanted_honey_bottle",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:fire_resistance"
+            }
+          ],
+          "name": "minecraft:splash_potion",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:water_breathing"
+            }
+          ],
+          "name": "minecraft:splash_potion",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 16,
+                "min": 8
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:golden_apple",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:unbreaking": 3,
+                "minecraft:mending": 1,
+                "minecraft:vanishing_curse": 1
+              }
+            }
+          ],
+          "name": "minecraft:shield",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:unbreaking": 3,
+                "minecraft:mending": 1,
+                "minecraft:sharpness": 5,
+                "minecraft:sweeping_edge": 3,
+                "minecraft:looting": 3,
+                "minecraft:fire_aspect": 2,
+                "minecraft:vanishing_curse": 1
+              }
+            }
+          ],
+          "name": "minecraft:diamond_sword",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:riptide": 3,
+                "minecraft:unbreaking": 3,
+                "minecraft:mending": 1,
+                "minecraft:impaling": 5,
+                "minecraft:vanishing_curse": 1
+              }
+            }
+          ],
+          "name": "minecraft:trident",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:loyalty": 3,
+                "minecraft:channeling": 1,
+                "minecraft:unbreaking": 3,
+                "minecraft:mending": 1,
+                "minecraft:impaling": 5,
+                "minecraft:vanishing_curse": 1
+              }
+            }
+          ],
+          "name": "minecraft:trident",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:quick_charge": 3,
+                "minecraft:unbreaking": 3,
+                "minecraft:mending": 1,
+                "minecraft:multishot": 1,
+                "minecraft:vanishing_curse": 1
+              }
+            }
+          ],
+          "name": "minecraft:crossbow",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:efficiency": 5,
+                "minecraft:fortune": 3,
+                "minecraft:unbreaking": 3,
+                "minecraft:mending": 1,
+                "minecraft:sharpness": 5,
+                "minecraft:vanishing_curse": 1
+              }
+            }
+          ],
+          "name": "minecraft:diamond_axe",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:density": 5,
+                "minecraft:fire_aspect": 2,
+                "minecraft:unbreaking": 3,
+                "minecraft:mending": 1,
+                "minecraft:wind_burst": 3,
+                "minecraft:vanishing_curse": 1
+              }
+            }
+          ],
+          "name": "minecraft:mace",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:infinity": 1,
+                "minecraft:flame": 1,
+                "minecraft:unbreaking": 3,
+                "minecraft:punch": 2,
+                "minecraft:power": 5,
+                "minecraft:vanishing_curse": 1
+              }
+            }
+          ],
+          "name": "minecraft:bow",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:efficiency": 5,
+                "minecraft:fortune": 3,
+                "minecraft:unbreaking": 3,
+                "minecraft:mending": 1,
+                "minecraft:vanishing_curse": 1
+              }
+            }
+          ],
+          "name": "minecraft:diamond_pickaxe",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:protection": 4,
+                "minecraft:respiration": 3,
+                "minecraft:aqua_affinity": 1,
+                "minecraft:unbreaking": 3,
+                "minecraft:mending": 1,
+                "minecraft:vanishing_curse": 1
+              }
+            }
+          ],
+          "name": "minecraft:diamond_helmet",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:protection": 4,
+                "minecraft:unbreaking": 3,
+                "minecraft:mending": 1,
+                "minecraft:vanishing_curse": 1
+              }
+            }
+          ],
+          "name": "minecraft:diamond_chestplate",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:protection": 4,
+                "minecraft:swift_sneak": 3,
+                "minecraft:unbreaking": 3,
+                "minecraft:mending": 1,
+                "minecraft:vanishing_curse": 1
+              }
+            }
+          ],
+          "name": "minecraft:diamond_leggings",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:protection": 4,
+                "minecraft:feather_falling": 4,
+                "minecraft:frost_walker": 1,
+                "minecraft:soul_speed": 3,
+                "minecraft:unbreaking": 3,
+                "minecraft:mending": 1,
+                "minecraft:vanishing_curse": 1
+              }
+            }
+          ],
+          "name": "minecraft:diamond_boots",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 4,
+                "min": 1
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:enchanted_golden_apple",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 16,
+                "min": 8
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:blaze_powder",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 16,
+                "min": 8
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:ender_pearl",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:looting": 10,
+                "minecraft:vanishing_curse": 1
+              }
+            },
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:max_damage": 32
+              }
+            },
+            {
+              "function": "minecraft:set_attributes",
+              "modifiers": [
+                {
+                  "attribute": "minecraft:generic.attack_speed",
+                  "id": "minecraft:lolka2",
+                  "amount": -2.4,
+                  "operation": "add_value",
+                  "slot": "any"
+                }
+              ]
+            }
+          ],
+          "name": "minecraft:netherite_sword",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:riptide": 10,
+                "minecraft:vanishing_curse": 1
+              }
+            },
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:max_damage": 50
+              }
+            },
+            {
+              "function": "minecraft:set_attributes",
+              "modifiers": [
+                {
+                  "attribute": "minecraft:generic.attack_speed",
+                  "id": "minecraft:lolka2",
+                  "amount": -2.4,
+                  "operation": "add_value",
+                  "slot": "any"
+                }
+              ]
+            }
+          ],
+          "name": "minecraft:trident",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:multishot": 10,
+                "minecraft:vanishing_curse": 1
+              }
+            },
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:max_damage": 46
+              }
+            },
+            {
+              "function": "minecraft:set_attributes",
+              "modifiers": [
+                {
+                  "attribute": "minecraft:zombie.spawn_reinforcements",
+                  "id": "minecraft:lolka",
+                  "amount": 0,
+                  "operation": "add_value",
+                  "slot": "any"
+                }
+              ]
+            }
+          ],
+          "name": "minecraft:crossbow",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:sharpness": 10,
+                "minecraft:vanishing_curse": 1
+              }
+            },
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:max_damage": 32
+              }
+            },
+            {
+              "function": "minecraft:set_attributes",
+              "modifiers": [
+                {
+                  "attribute": "minecraft:zombie.spawn_reinforcements",
+                  "id": "minecraft:lolka",
+                  "amount": 0,
+                  "operation": "add_value",
+                  "slot": "any"
+                }
+              ]
+            }
+          ],
+          "name": "minecraft:netherite_axe",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:density": 10,
+                "minecraft:vanishing_curse": 1
+              }
+            },
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:max_damage": 50
+              }
+            },
+            {
+              "function": "minecraft:set_attributes",
+              "modifiers": [
+                {
+                  "attribute": "minecraft:generic.attack_speed",
+                  "id": "minecraft:lolka2",
+                  "amount": -2.4,
+                  "operation": "add_value",
+                  "slot": "any"
+                }
+              ]
+            }
+          ],
+          "name": "minecraft:mace",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:punch": 10,
+                "minecraft:vanishing_curse": 1
+              }
+            },
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:max_damage": 38
+              }
+            },
+            {
+              "function": "minecraft:set_attributes",
+              "modifiers": [
+                {
+                  "attribute": "minecraft:zombie.spawn_reinforcements",
+                  "id": "minecraft:lolka",
+                  "amount": 0,
+                  "operation": "add_value",
+                  "slot": "any"
+                }
+              ]
+            }
+          ],
+          "name": "minecraft:bow",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:fortune": 10,
+                "minecraft:vanishing_curse": 1
+              }
+            },
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:max_damage": 32
+              }
+            },
+            {
+              "function": "minecraft:set_attributes",
+              "modifiers": [
+                {
+                  "attribute": "minecraft:generic.attack_speed",
+                  "id": "minecraft:lolka2",
+                  "amount": -2.4,
+                  "operation": "add_value",
+                  "slot": "any"
+                }
+              ]
+            }
+          ],
+          "name": "minecraft:netherite_pickaxe",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:respiration": 10,
+                "minecraft:binding_curse": 1
+              }
+            },
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:max_damage": 55
+              }
+            },
+            {
+              "function": "minecraft:set_attributes",
+              "modifiers": [
+                {
+                  "attribute": "minecraft:zombie.spawn_reinforcements",
+                  "id": "minecraft:lolka",
+                  "amount": 0,
+                  "operation": "add_value",
+                  "slot": "any"
+                }
+              ]
+            }
+          ],
+          "name": "minecraft:turtle_helmet",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:protection": 10,
+                "minecraft:binding_curse": 1
+              }
+            },
+            {
+              "function": "minecraft:set_attributes",
+              "modifiers": [
+                {
+                  "attribute": "minecraft:generic.knockback_resistance",
+                  "id": "minecraft:cursed_chestplate",
+                  "amount": 1,
+                  "operation": "add_value",
+                  "slot": "armor"
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:max_damage": 80
+              }
+            }
+          ],
+          "name": "minecraft:netherite_chestplate",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:swift_sneak": 10,
+                "minecraft:fire_protection": 10,
+                "minecraft:binding_curse": 1
+              }
+            },
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:max_damage": 75
+              }
+            },
+            {
+              "function": "minecraft:set_attributes",
+              "modifiers": [
+                {
+                  "attribute": "minecraft:zombie.spawn_reinforcements",
+                  "id": "minecraft:lolka",
+                  "amount": 0,
+                  "operation": "add_value",
+                  "slot": "any"
+                }
+              ]
+            }
+          ],
+          "name": "minecraft:netherite_leggings",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:feather_falling": 10,
+                "minecraft:soul_speed": 10,
+                "minecraft:binding_curse": 1
+              }
+            },
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:max_damage": 65
+              }
+            },
+            {
+              "function": "minecraft:set_attributes",
+              "modifiers": [
+                {
+                  "attribute": "minecraft:generic.movement_speed",
+                  "id": "minecraft:cursed_boots",
+                  "amount": 0.04,
+                  "operation": "add_value",
+                  "slot": "armor"
+                }
+              ]
+            }
+          ],
+          "name": "minecraft:netherite_boots",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:shield",
+          "functions": [
+            {
+              "function": "minecraft:set_attributes",
+              "modifiers": [
+                {
+                  "attribute": "minecraft:generic.max_health",
+                  "id": "minecraft:cursed_shield",
+                  "amount": 10,
+                  "operation": "add_value",
+                  "slot": "offhand"
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:vanishing_curse": 1
+              }
+            },
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:max_damage": 33
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:elytra",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:max_damage": 43
+              }
+            },
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:vanishing_curse": 1,
+                "minecraft:binding_curse": 1
+              }
+            },
+            {
+              "function": "minecraft:set_attributes",
+              "modifiers": [
+                {
+                  "attribute": "minecraft:zombie.spawn_reinforcements",
+                  "id": "minecraft:lolka",
+                  "amount": 0,
+                  "operation": "add_value",
+                  "slot": "any"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rolls": 5
+    }
+  ]
+}

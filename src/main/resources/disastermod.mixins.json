@@ -1,0 +1,28 @@
+{
+  "required": true,
+  "package": "com.a3ot.disastermod.mixin",
+  "mixins": [
+    "BeehiveBlockMixin",
+    "BrushItemMixin",
+    "EntityMixin",
+    "PlayerMixin",
+    "ServerPlayerMixin"
+  ],
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "accessor.HumanoidModelAccessor",
+    "client.FontMixin",
+    "client.FontStringRenderOutputMixin",
+    "client.HumanoidModelMixin",
+    "client.MinecraftMixin",
+    "client.PlayerModelMixin",
+    "client.SoundEngineMixin",
+    "client.StringSplitterMixin",
+    "client.UnitDoubleMixin",
+    "client.render.BoatRendererMixin",
+    "client.render.EndCrystalRendererMixin",
+    "client.render.EnderDragonRendererMixin",
+    "client.render.LivingEntityRendererMixin",
+    "client.render.MinecartRendererMixin"
+  ]
+}

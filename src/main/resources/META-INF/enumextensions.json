@@ -1,0 +1,22 @@
+{
+  "entries": [
+    {
+      "enum": "net/minecraft/world/damagesource/DamageEffects",
+      "name": "DISASTERMOD_HYDROPHOBIA",
+      "constructor": "(Ljava/lang/String;Ljava/util/function/Supplier;)V",
+      "parameters": {
+        "class": "com/a3ot/disastermod/data/ModEnumParams",
+        "method": "getHydrophobiaParams"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/damagesource/DamageEffects",
+      "name": "DISASTERMOD_NYCTOPHOBIA",
+      "constructor": "(Ljava/lang/String;Ljava/util/function/Supplier;)V",
+      "parameters": {
+        "class": "com/a3ot/disastermod/data/ModEnumParams",
+        "method": "getNyctophobiaParams"
+      }
+    }
+  ]
+}
