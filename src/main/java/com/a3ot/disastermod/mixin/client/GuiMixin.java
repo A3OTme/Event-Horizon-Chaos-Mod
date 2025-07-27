@@ -1,6 +1,6 @@
 package com.a3ot.disastermod.mixin.client;
 
-import com.a3ot.disastermod.events.client.ShakingCrosshairEvent;
+import com.a3ot.disastermod.events.client.ShakyCrosshairEvent;
 import com.a3ot.disastermod.handlers.client.ClientVariables;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphics;
@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class GuiMixin {
 
     @Unique
-    private final ShakingCrosshairEvent disastermod$tcManager = ShakingCrosshairEvent.getInstance();
+    private final ShakyCrosshairEvent disastermod$tcManager = ShakyCrosshairEvent.getInstance();
 
     @Inject(
             method = "renderCrosshair(Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V",
@@ -27,7 +27,7 @@ public class GuiMixin {
             )
     )
     private void disastermod$beforeRenderCrosshair(GuiGraphics guiGraphics, DeltaTracker deltaTracker, CallbackInfo ci) {
-        if (ClientVariables.tremblingCrosshair) {
+        if (ClientVariables.shakyCrosshair) {
             disastermod$tcManager.updateOffset();
             PoseStack poseStack = guiGraphics.pose();
             poseStack.translate(disastermod$tcManager.getOffsetX(), disastermod$tcManager.getOffsetY(), 0.0f);

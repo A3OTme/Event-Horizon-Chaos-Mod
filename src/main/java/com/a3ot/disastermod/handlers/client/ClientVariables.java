@@ -24,7 +24,8 @@ public class ClientVariables {
             pitchMin,
             smoothCamera,
             onlySwimmingActive,
-            tremblingCrosshair
+            shakyCrosshair,
+            noTransparency
                     = false;
 
     @SubscribeEvent
@@ -46,7 +47,8 @@ public class ClientVariables {
         pitchMin =
         smoothCamera =
         onlySwimmingActive =
-        tremblingCrosshair =
+        shakyCrosshair =
+        noTransparency =
         false;
     }
 

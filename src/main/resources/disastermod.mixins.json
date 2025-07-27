@@ -6,7 +6,8 @@
     "BrushItemMixin",
     "EntityMixin",
     "PlayerMixin",
-    "ServerPlayerMixin"
+    "ServerPlayerMixin",
+    "client.render.RenderTypeHelperMixin"
   ],
   "compatibilityLevel": "JAVA_21",
   "client": [
@@ -23,6 +24,7 @@
     "client.render.BoatRendererMixin",
     "client.render.EndCrystalRendererMixin",
     "client.render.EnderDragonRendererMixin",
+    "client.render.ItemBlockRenderTypesMixin",
     "client.render.LivingEntityRendererMixin",
     "client.render.MinecartRendererMixin"
   ]

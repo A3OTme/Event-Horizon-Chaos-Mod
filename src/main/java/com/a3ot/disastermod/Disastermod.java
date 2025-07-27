@@ -32,8 +32,6 @@ public class Disastermod {
         ModDataComponents.DATA_COMPONENT_TYPES.register(modEventBus);
         modEventBus.register(ConfigHandler.class);
         modEventBus.register(NetworkHandler.class);
-        NeoForge.EVENT_BUS.register(ClientHandler.class);
-        NeoForge.EVENT_BUS.register(ClientVariables.class);
         NeoForge.EVENT_BUS.register(BlockHandler.class);
         NeoForge.EVENT_BUS.register(PlayerHandler.class);
         NeoForge.EVENT_BUS.register(ServerHandler.class);
@@ -42,7 +40,6 @@ public class Disastermod {
         ModItems.ITEMS.register(modEventBus);
         ModCreativeModeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         modContainer.registerConfig(ModConfig.Type.COMMON, GeneralConfig.SPEC);
-        modContainer.registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {

@@ -7,17 +7,17 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 
-public class ShakingCrosshairEvent implements AbstractEvent { //todo player ray movement
-    private static final ShakingCrosshairEvent INSTANCE = new ShakingCrosshairEvent();
+public class ShakyCrosshairEvent implements AbstractEvent { //todo player ray movement
+    private static final ShakyCrosshairEvent INSTANCE = new ShakyCrosshairEvent();
 
     @Override
     public void onClientStart(Level level) {
-        ClientVariables.tremblingCrosshair = true;
+        ClientVariables.shakyCrosshair = true;
     }
 
     @Override
     public void onClientEnd(Level level) {
-        ClientVariables.tremblingCrosshair = false;
+        ClientVariables.shakyCrosshair = false;
         resetOffset();
     }
 
@@ -31,11 +31,11 @@ public class ShakingCrosshairEvent implements AbstractEvent { //todo player ray 
 
     private boolean offsetAppliedThisFrame = false;
 
-    private static final float OFFSET_CHANGE_SPEED = 2f;
+    private static final float OFFSET_CHANGE_SPEED = 1f;
 
     private static final float MAX_OFFSET_PIXELS = 100.0f;
 
-    public static ShakingCrosshairEvent getInstance() {
+    public static ShakyCrosshairEvent getInstance() {
         return INSTANCE;
     }
 
