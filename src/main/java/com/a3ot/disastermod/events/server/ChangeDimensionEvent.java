@@ -226,11 +226,6 @@ public class ChangeDimensionEvent implements AbstractEvent {
 
     @Override
     public float getVolume() {
-        return 0.2F;
-    }
-
-    @Override
-    public SoundEvent getSound() {
-        return SoundEvents.PORTAL_TRAVEL;
+        return 0F;
     }
 }

@@ -69,6 +69,7 @@ public class PlayerHandler {
         LivingEntity entity = event.getEntity();
         DamageSource damageSource = event.getSource();
         event.setCanceled(AllItemsAreTotemEvent.livingDeath(entity, damageSource));
+        CurseOfVanishingEvent.livingDeath(entity);
         DementiaEvent.livingDeath(entity);
         DeathStorage.recordPlayerDeath(entity);
     }

@@ -1,6 +1,5 @@
 package com.a3ot.disastermod.events.server;
 
-import com.a3ot.disastermod.ServerTick;
 import com.a3ot.disastermod.events.AbstractEvent;
 import com.a3ot.disastermod.events.EventType;
 import net.minecraft.ChatFormatting;
@@ -16,11 +15,6 @@ public class TimeStopEvent implements AbstractEvent {
     @Override
     public void onEnd(ServerLevel level) {
         level.getServer().tickRateManager().setFrozen(false);
-    }
-
-    @Override
-    public int getInterval() {
-        return ServerTick.getTotalTicks();
     }
 
     @Override

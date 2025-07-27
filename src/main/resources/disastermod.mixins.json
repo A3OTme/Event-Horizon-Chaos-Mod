@@ -3,6 +3,7 @@
   "package": "com.a3ot.disastermod.mixin",
   "mixins": [
     "BeehiveBlockMixin",
+    "BlockMixin",
     "BrushItemMixin",
     "EntityMixin",
     "PlayerMixin",

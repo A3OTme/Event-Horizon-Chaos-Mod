@@ -31,6 +31,11 @@ public class DementiaEvent extends AbstractRandomSlotInventoryEvent implements A
     protected boolean includeOffhand() { return false; }
 
     @Override
+    public boolean requiresPeriodicTick() {
+        return true;
+    }
+
+    @Override
     public ItemStack modifyItem(ItemStack stack) {
         ItemStack hidden = new ItemStack(ModItems.HIDDEN_ITEM_PLACEHOLDER.get());
         if (stack.isEmpty()) {

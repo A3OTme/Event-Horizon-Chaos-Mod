@@ -32,11 +32,6 @@ public abstract class AbstractInventoryEvent implements AbstractEvent {
         });
     }
 
-    @Override
-    public boolean requiresPeriodicTick() {
-        return true;
-    }
-
     protected boolean includeMainInventory() { return true; }
     protected boolean includeArmor() { return true; }
     protected boolean includeOffhand() { return true; }

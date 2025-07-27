@@ -68,4 +68,9 @@ public abstract class AbstractEquipmentTransformEvent extends AbstractInventoryE
         Item transformedItem = BuiltInRegistries.ITEM.get(nextItemId);
         return Optional.of(transformedItem).filter(item -> item != Items.AIR);
     }
+
+    @Override
+    public double getDefaultDurationMultiplier() {
+        return 0;
+    }
 }

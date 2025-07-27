@@ -32,4 +32,9 @@ public abstract class AbstractDataComponentEvent extends AbstractInventoryEvent 
         updateEventStatus(this, false);
         super.onEnd(level);
     }
+
+    @Override
+    public boolean requiresPeriodicTick() {
+        return true;
+    }
 }

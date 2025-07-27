@@ -80,9 +80,4 @@ public class EquipmentUpgradeEvent extends AbstractEquipmentTransformEvent {
     public EventType getType() {
         return EventType.POSITIVE;
     }
-
-    @Override
-    public double getDefaultDurationMultiplier() {
-        return 0;
-    }
 }

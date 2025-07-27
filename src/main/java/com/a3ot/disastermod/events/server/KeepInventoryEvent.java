@@ -1,6 +1,5 @@
 package com.a3ot.disastermod.events.server;
 
-import com.a3ot.disastermod.ServerTick;
 import com.a3ot.disastermod.events.AbstractEvent;
 import com.a3ot.disastermod.events.EventType;
 import net.minecraft.server.level.ServerLevel;
@@ -24,8 +23,7 @@ public class KeepInventoryEvent implements AbstractEvent {
     }
 
     @Override
-    public int getInterval() {
-        return ServerTick.getTotalTicks();
+    public boolean conflictsWith(AbstractEvent other) {
+        return other instanceof CurseOfVanishingEvent;
     }
-
 }

@@ -82,6 +82,8 @@ public class EventsRegistry {
         DISASTER_EVENTS.add(new BlindRageEvent());
         DISASTER_EVENTS.add(new ShakyCrosshairEvent());
         DISASTER_EVENTS.add(new NoTransparencyEvent());
+        DISASTER_EVENTS.add(new RandomBlockDropEvent());
+        DISASTER_EVENTS.add(new CurseOfVanishingEvent());
 
         for (AbstractEvent event : DISASTER_EVENTS) {
             EVENT_MAP.put(event.getConfigName(), event);
