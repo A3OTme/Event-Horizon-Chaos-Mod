@@ -35,7 +35,7 @@ public class EnchantHoneyBottleEvent implements AbstractEvent, IActiveStateEvent
     public void onStart(ServerLevel level) {
         this.setActive();
         if (level.dimension() != Level.OVERWORLD) return;
-        List<ServerPlayer> players = level.getServer().getPlayerList().getPlayers().stream().filter(Utils::isPlayerValid).toList();
+        List<ServerPlayer> players = level.getServer().getPlayerList().getPlayers().stream().filter(Utils::isValidPlayer).toList();
         if (players.isEmpty()) return;
         Utils.giveItem(players.get(level.random.nextInt(players.size())), ModItems.ENCHANTED_HONEY_BOTTLE.toStack()); //нельзя вызывать так как повторно выдаст игрокам предмет.
     }

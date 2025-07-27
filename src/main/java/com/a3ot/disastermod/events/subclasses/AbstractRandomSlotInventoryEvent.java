@@ -18,7 +18,7 @@ public abstract class AbstractRandomSlotInventoryEvent extends AbstractInventory
 
     @Override
     public void onStart(ServerLevel level) {
-        level.players().stream().filter(Utils::isPlayerValid).forEach(player -> {
+        level.players().stream().filter(Utils::isValidPlayer).forEach(player -> {
             processRandomSlots(level, player);
             player.getInventory().setChanged();
         });
@@ -26,7 +26,7 @@ public abstract class AbstractRandomSlotInventoryEvent extends AbstractInventory
 
     @Override
     public void onTick(ServerLevel level) {
-        level.players().stream().filter(Utils::isPlayerValid).forEach(player -> {
+        level.players().stream().filter(Utils::isValidPlayer).forEach(player -> {
             processRandomSlots(level, player);
             player.getInventory().setChanged();
         });

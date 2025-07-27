@@ -25,7 +25,7 @@ import java.util.Objects;
 public class ReturnToLastDeathEvent implements AbstractEvent {
     @Override
     public void onStart(ServerLevel level) {
-        List<ServerPlayer> playersCopy = new ArrayList<>(level.players().stream().filter(Utils::isPlayerValid).toList());
+        List<ServerPlayer> playersCopy = new ArrayList<>(level.players().stream().filter(Utils::isValidPlayer).toList());
         playersCopy.forEach(player -> {
             DeathStorage.DeathData deathData = DeathStorage.getDeathData(player.getUUID());
             if (deathData != null) {

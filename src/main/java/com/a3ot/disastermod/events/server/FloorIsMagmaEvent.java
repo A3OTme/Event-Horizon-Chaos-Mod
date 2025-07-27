@@ -9,7 +9,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
@@ -42,7 +41,7 @@ public class FloorIsMagmaEvent implements AbstractEvent, IActiveStateEvent {
 
     @Override
     public void onStart(ServerLevel level) {
-        level.players().stream().filter(Utils::isPlayerValid).forEach(player -> {
+        level.players().stream().filter(Utils::isValidPlayer).forEach(player -> {
             MobEffectInstance fire_resistance = new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 60, 0, false, true);
             player.addEffect(fire_resistance);
         });
@@ -56,7 +55,7 @@ public class FloorIsMagmaEvent implements AbstractEvent, IActiveStateEvent {
 
     public static void playerTick(Player player, Level level){
         if (!active) return;
-        if (!Utils.isPlayerValid(player)) return;
+        if (!Utils.isValidPlayer(player)) return;
         if (!player.onGround()) return;
         BlockPos posBelow = player.blockPosition().below();
         BlockState state = level.getBlockState(posBelow);
@@ -73,7 +72,7 @@ public class FloorIsMagmaEvent implements AbstractEvent, IActiveStateEvent {
 
     @Override
     public void playerRespawnOrJoin(Player player, Level level){
-        if(!(Utils.isPlayerValid(player))) return;
+        if(!(Utils.isValidPlayer(player))) return;
         MobEffectInstance fire_resistance = new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 60, 0, false, true);
         player.addEffect(fire_resistance);
     }

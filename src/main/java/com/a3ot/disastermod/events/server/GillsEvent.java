@@ -31,7 +31,7 @@ public class GillsEvent implements AbstractEvent, IActiveStateEvent {
 
     @Override
     public void onStart(ServerLevel level) {
-        level.players().stream().filter(Utils::isPlayerValid).forEach(player -> {
+        level.players().stream().filter(Utils::isValidPlayer).forEach(player -> {
             MobEffectInstance water_breathing = new MobEffectInstance(MobEffects.WATER_BREATHING, Math.min(Math.max(ServerTick.getTotalTicks() / 2, 200), 1200), 0, false, true);
             player.addEffect(water_breathing);
         });
@@ -61,7 +61,7 @@ public class GillsEvent implements AbstractEvent, IActiveStateEvent {
 
     @Override
     public void playerRespawnOrJoin(Player player, Level level){
-        if(!(Utils.isPlayerValid(player))) return;
+        if(!(Utils.isValidPlayer(player))) return;
         MobEffectInstance water_breathing = new MobEffectInstance(MobEffects.WATER_BREATHING, Math.min(Math.max(ServerTick.getTotalTicks() / 2, 200), 1200), 0, false, true);
         player.addEffect(water_breathing);
     }

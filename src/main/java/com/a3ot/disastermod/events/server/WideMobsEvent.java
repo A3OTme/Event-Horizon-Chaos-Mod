@@ -37,7 +37,7 @@ public class WideMobsEvent implements AbstractEvent {
 
     public static void modifyHitbox(CallbackInfoReturnable<AABB> cir, Entity entity){
         if (ClientVariables.wideMobs && (
-                (entity instanceof Player player && Utils.isPlayerValid(player)) ||
+                (entity instanceof Player player && Utils.isValidPlayer(player)) ||
                 (entity instanceof LivingEntity && !(entity instanceof Player)) ||
                 entity instanceof Boat ||
                 entity instanceof Minecart ||

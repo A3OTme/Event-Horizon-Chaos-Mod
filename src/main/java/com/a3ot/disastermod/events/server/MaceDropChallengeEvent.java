@@ -17,7 +17,7 @@ import net.minecraft.world.item.Items;
 public class MaceDropChallengeEvent implements AbstractEvent {
     @Override
     public void onStart(ServerLevel level) {
-        level.players().stream().filter(Utils::isPlayerValid).forEach(player -> {
+        level.players().stream().filter(Utils::isValidPlayer).forEach(player -> {
             if (!level.isClientSide){
                 BlockPos playerPos = player.blockPosition();
                 int x = playerPos.getX();

@@ -50,7 +50,7 @@ public class BlindRageEvent implements AbstractEvent, IActiveStateEvent {
 
     public static void playerTick(Player player, Level level){
         if(!active) return;
-        if(!Utils.isPlayerValid(player)) return;
+        if(!Utils.isValidPlayer(player)) return;
         AABB searchBox = getBoundingBoxAroundEntity(player, 24);
         List<LivingEntity> nearbyEntities = level.getEntitiesOfClass(
                 LivingEntity.class,

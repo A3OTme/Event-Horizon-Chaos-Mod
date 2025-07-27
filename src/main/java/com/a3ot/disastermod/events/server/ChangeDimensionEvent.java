@@ -9,8 +9,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
@@ -30,7 +28,7 @@ public class ChangeDimensionEvent implements AbstractEvent {
     public void onStart(ServerLevel level) {
         if (level.dimension() != Level.OVERWORLD) return;
         List<ServerPlayer> allPlayers = level.getServer().getPlayerList().getPlayers();
-        allPlayers.stream().filter(Utils::isPlayerValid).forEach(player -> {
+        allPlayers.stream().filter(Utils::isValidPlayer).forEach(player -> {
             ServerLevel targetLevel;
             if (player.level().dimension() == Level.END || player.level().dimension() == Level.NETHER) {
                 targetLevel = level.getServer().getLevel(Level.OVERWORLD);

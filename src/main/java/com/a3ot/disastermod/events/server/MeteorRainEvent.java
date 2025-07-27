@@ -14,7 +14,7 @@ public class MeteorRainEvent implements AbstractEvent {
     public void onTick(ServerLevel level) {
         RandomSource random = level.random;
         for (int i = 0; i < 7; i++) {
-            level.players().stream().filter(Utils::isPlayerValid).forEach(serverPlayerEntity -> {
+            level.players().stream().filter(Utils::isValidPlayer).forEach(serverPlayerEntity -> {
                 double speed = random.nextInt(4) + 1;
                 double angle = Math.toRadians(45);
                 double horizontalSpeed = speed * Math.sin(angle);

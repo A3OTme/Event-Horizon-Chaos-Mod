@@ -12,7 +12,7 @@ import net.minecraft.world.level.Level;
 public class PhotosensitizationEvent implements AbstractEvent {
     @Override
     public void onStart(ServerLevel level){
-        level.players().stream().filter(Utils::isPlayerValid).forEach(player -> {
+        level.players().stream().filter(Utils::isValidPlayer).forEach(player -> {
             MobEffectInstance fire_resistance = new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200, 0, false, true);
             player.addEffect(fire_resistance);
         });
@@ -20,7 +20,7 @@ public class PhotosensitizationEvent implements AbstractEvent {
 
     @Override
     public void onTick(ServerLevel level) {
-        level.players().stream().filter(Utils::isPlayerValid).forEach(player -> {
+        level.players().stream().filter(Utils::isValidPlayer).forEach(player -> {
             BlockPos playerPos = player.blockPosition();
             int lightLevel = Utils.lightManager(playerPos, level, 0, 0);
             if (lightLevel > 12) {
@@ -40,7 +40,7 @@ public class PhotosensitizationEvent implements AbstractEvent {
 
     @Override
     public void playerRespawnOrJoin(Player player, Level level){
-        if(!(Utils.isPlayerValid(player))) return;
+        if(!(Utils.isValidPlayer(player))) return;
         MobEffectInstance fire_resistance = new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200, 0, false, true);
         player.addEffect(fire_resistance);
     }

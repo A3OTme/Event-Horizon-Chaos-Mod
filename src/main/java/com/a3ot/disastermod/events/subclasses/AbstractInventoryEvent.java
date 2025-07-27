@@ -10,7 +10,7 @@ public abstract class AbstractInventoryEvent implements AbstractEvent {
 
     @Override
     public void onStart(ServerLevel level) {
-        level.players().stream().filter(Utils::isPlayerValid).forEach(player -> {
+        level.players().stream().filter(Utils::isValidPlayer).forEach(player -> {
             processAllSlots(level, player);
             player.getInventory().setChanged();
         });
@@ -18,7 +18,7 @@ public abstract class AbstractInventoryEvent implements AbstractEvent {
 
     @Override
     public void onTick(ServerLevel level) {
-        level.players().stream().filter(Utils::isPlayerValid).forEach(player -> {
+        level.players().stream().filter(Utils::isValidPlayer).forEach(player -> {
             processAllSlots(level, player);
             player.getInventory().setChanged();
         });

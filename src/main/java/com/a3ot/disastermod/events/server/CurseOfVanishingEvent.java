@@ -1,5 +1,6 @@
 package com.a3ot.disastermod.events.server;
 
+import com.a3ot.disastermod.Disastermod;
 import com.a3ot.disastermod.events.AbstractEvent;
 import com.a3ot.disastermod.events.subclasses.AbstractInventoryEvent;
 import com.a3ot.disastermod.events.subclasses.IActiveStateEvent;
@@ -12,6 +13,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -62,8 +64,8 @@ public class CurseOfVanishingEvent extends AbstractInventoryEvent implements Abs
 
     public static void livingDeath(LivingEntity entity) {
         if (!active) return;
-        if (!(entity instanceof ServerPlayer player)) return;
-        if (!Utils.isPlayerValid(player)) return;
+        if (!(entity instanceof Player player)) return;
+        if (!Utils.isValidDeadPlayer(player)) return;
         if (Objects.requireNonNull(player.level().getServer()).getGameRules().getRule(GameRules.RULE_KEEPINVENTORY).get()) return;
         player.getInventory().clearContent();
     }

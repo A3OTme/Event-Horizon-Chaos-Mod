@@ -25,7 +25,7 @@ public class RandonStructureEvent implements AbstractEvent {
 
     @Override
     public void onStart(ServerLevel level) {
-        List<ServerPlayer> players = level.players().stream().filter(Utils::isPlayerValid).toList();
+        List<ServerPlayer> players = level.players().stream().filter(Utils::isValidPlayer).toList();
         if (players.isEmpty()) return;
         player = players.get(level.random.nextInt(players.size()));
         if (player == null) return;

@@ -46,7 +46,7 @@ public class HappyBirthdayEvent extends AbstractRandomSlotInventoryEvent impleme
     @Override
     public void onStart(ServerLevel level) {
         if (level.dimension() != Level.OVERWORLD) return;
-        List<ServerPlayer> players = level.getServer().getPlayerList().getPlayers().stream().filter(Utils::isPlayerValid).toList();
+        List<ServerPlayer> players = level.getServer().getPlayerList().getPlayers().stream().filter(Utils::isValidPlayer).toList();
         if (players.isEmpty()) return;
         birthdayBoy = players.get(level.random.nextInt(players.size()));
         BlockPos pos = birthdayBoy.blockPosition();
@@ -79,7 +79,7 @@ public class HappyBirthdayEvent extends AbstractRandomSlotInventoryEvent impleme
             chest.setLootTable(endCityLoot, birthdayLevel.random.nextLong());
 
 
-            level.players().stream().filter(player -> player != birthdayBoy && Utils.isPlayerValid(player)).forEach(player -> {
+            level.players().stream().filter(player -> player != birthdayBoy && Utils.isValidPlayer(player)).forEach(player -> {
                 chestItems = chest.getItems();
                 processRandomSlots(level, player);
                 player.getInventory().setChanged();

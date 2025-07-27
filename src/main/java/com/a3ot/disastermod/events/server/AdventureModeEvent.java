@@ -11,7 +11,7 @@ import net.minecraft.world.level.GameType;
 public class AdventureModeEvent implements AbstractEvent {
     @Override
     public void onTick(ServerLevel level) {
-        level.players().stream().filter(Utils::isPlayerValid).forEach(player -> {
+        level.players().stream().filter(Utils::isValidPlayer).forEach(player -> {
             if (player.gameMode.isSurvival()) player.setGameMode(GameType.ADVENTURE);
         });
     }

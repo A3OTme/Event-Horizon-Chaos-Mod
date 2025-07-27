@@ -23,9 +23,14 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 
 public class Utils {
-    public static boolean isPlayerValid(Player player) {
+    public static boolean isValidPlayer(Player player) {
         return player != null
                 && player.isAlive()
+                && !player.isCreative() && !player.isSpectator();
+    }
+
+    public static boolean isValidDeadPlayer(Player player) {
+        return player != null
                 && !player.isCreative() && !player.isSpectator();
     }
 

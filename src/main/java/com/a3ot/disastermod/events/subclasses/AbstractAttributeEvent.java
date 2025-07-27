@@ -41,7 +41,7 @@ public abstract class AbstractAttributeEvent implements AbstractEvent {
         defineModifiers();
         level.getAllEntities().forEach(entity -> {
             if (entity instanceof LivingEntity living &&
-                    !(entity instanceof ServerPlayer player && !Utils.isPlayerValid(player))) {
+                    !(entity instanceof ServerPlayer player && !Utils.isValidPlayer(player))) {
                 applyModifiers(living);
             }
         });

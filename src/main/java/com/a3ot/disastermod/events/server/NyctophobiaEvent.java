@@ -34,7 +34,7 @@ public class NyctophobiaEvent implements AbstractEvent, IActiveStateEvent {
 
     @Override
     public void onStart(ServerLevel level) {
-        level.players().stream().filter(Utils::isPlayerValid).forEach(player -> {
+        level.players().stream().filter(Utils::isValidPlayer).forEach(player -> {
             BlockPos pos = player.getOnPos();
             if (!(level.dimension() == Level.NETHER) && Utils.lightManager(pos.above(), level) < 10)
                 Utils.blockFilling(level, pos, pos, Blocks.SHROOMLIGHT);
@@ -49,7 +49,7 @@ public class NyctophobiaEvent implements AbstractEvent, IActiveStateEvent {
 
     public static void playerTick(Player player, Level level){
         if(!active) return;
-        if(!Utils.isPlayerValid((ServerPlayer) player)) return;
+        if(!Utils.isValidPlayer((ServerPlayer) player)) return;
         BlockPos playerPos = player.blockPosition();
         int lightLevel = Utils.lightManager(playerPos, level);
         if (lightLevel < 3) {
@@ -60,7 +60,7 @@ public class NyctophobiaEvent implements AbstractEvent, IActiveStateEvent {
 
     @Override
     public void playerRespawnOrJoin(Player player, Level level){
-        if(!(Utils.isPlayerValid(player))) return;
+        if(!(Utils.isValidPlayer(player))) return;
         BlockPos pos = player.getOnPos();
         if (!(level.dimension() == Level.NETHER) && Utils.lightManager(pos.above(), level) < 10)
             Utils.blockFilling((ServerLevel) level, pos, pos, Blocks.SHROOMLIGHT);

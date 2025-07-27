@@ -30,7 +30,7 @@ public class ArcheologyPlusEvent implements AbstractEvent, IActiveStateEvent {
     @Override
     public void onStart(ServerLevel level) {
         this.setActive();
-        level.players().stream().filter(Utils::isPlayerValid).forEach(player -> Utils.giveItem(player, Items.BRUSH.getDefaultInstance()));
+        level.players().stream().filter(Utils::isValidPlayer).forEach(player -> Utils.giveItem(player, Items.BRUSH.getDefaultInstance()));
     }
 
     @Override

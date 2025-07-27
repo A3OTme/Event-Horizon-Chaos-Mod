@@ -8,7 +8,6 @@ import com.a3ot.disastermod.events.utils.Utils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
@@ -36,7 +35,7 @@ public class BotanophobiaEvent implements AbstractEvent, IActiveStateEvent {
 
     @Override
     public void onStart(ServerLevel level) {
-        level.players().stream().filter(Utils::isPlayerValid).forEach(player -> {
+        level.players().stream().filter(Utils::isValidPlayer).forEach(player -> {
             setPlatform(player,level);
         });
         this.setActive();
@@ -49,7 +48,7 @@ public class BotanophobiaEvent implements AbstractEvent, IActiveStateEvent {
 
     public static void playerTick(Player player, Level level){
         if(!active) return;
-        if(!Utils.isPlayerValid(player)) return;
+        if(!Utils.isValidPlayer(player)) return;
         BlockPos entityPos = player.blockPosition();
         java.util.List<BlockPos> checkPositions = new java.util.ArrayList<>(2);
         checkPositions.add(entityPos);
@@ -71,7 +70,7 @@ public class BotanophobiaEvent implements AbstractEvent, IActiveStateEvent {
     }
 
     public static void setPlatform(Player player, Level level){
-        if(!(Utils.isPlayerValid(player))) return;
+        if(!(Utils.isValidPlayer(player))) return;
         BlockPos playerPos = player.blockPosition();
         int x = playerPos.getX();
         int z = playerPos.getZ();

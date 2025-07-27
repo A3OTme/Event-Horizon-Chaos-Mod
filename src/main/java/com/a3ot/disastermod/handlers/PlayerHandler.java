@@ -1,11 +1,8 @@
 package com.a3ot.disastermod.handlers;
 
 import com.a3ot.disastermod.Disastermod;
-import com.a3ot.disastermod.ServerTick;
 import com.a3ot.disastermod.api.event.FluidCollisionEvent;
 import com.a3ot.disastermod.data.DeathStorage;
-import com.a3ot.disastermod.events.AbstractEvent;
-import com.a3ot.disastermod.events.EventSide;
 import com.a3ot.disastermod.events.server.InventoryShuffleEvent;
 import com.a3ot.disastermod.events.server.*;
 import com.a3ot.disastermod.events.utils.Utils;
@@ -20,7 +17,6 @@ import net.neoforged.neoforge.event.entity.living.LivingBreatheEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerContainerEvent;
-import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 @EventBusSubscriber(modid = Disastermod.MODID)
@@ -45,7 +41,7 @@ public class PlayerHandler {
     @SubscribeEvent
     public static void onPlayerOpenContainer(PlayerContainerEvent.Open event) {
         Player player = event.getEntity();
-        if (!Utils.isPlayerValid(player)) return;
+        if (!Utils.isValidPlayer(player)) return;
         InventoryShuffleEvent.shuffle(player);
     }
 

@@ -7,7 +7,7 @@ import net.minecraft.server.level.ServerLevel;
 public class RandomMotionEvent implements AbstractEvent {
     @Override
     public void onTick(ServerLevel level) {
-        level.players().stream().filter(Utils::isPlayerValid).forEach(player -> {
+        level.players().stream().filter(Utils::isValidPlayer).forEach(player -> {
             double angle = level.random.nextDouble() * 2 * Math.PI;
             double power = 1;
             double x = Math.cos(angle) * power;

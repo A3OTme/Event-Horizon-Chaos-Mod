@@ -531,7 +531,8 @@
             {
               "function": "minecraft:set_components",
               "components": {
-                "minecraft:max_damage": 32
+                "minecraft:max_damage": 32,
+                "minecraft:custom_data": "{cursed_item:1b}"
               }
             },
             {
@@ -563,7 +564,8 @@
             {
               "function": "minecraft:set_components",
               "components": {
-                "minecraft:max_damage": 50
+                "minecraft:max_damage": 50,
+                "minecraft:custom_data": "{cursed_item:1b}"
               }
             },
             {
@@ -595,7 +597,8 @@
             {
               "function": "minecraft:set_components",
               "components": {
-                "minecraft:max_damage": 46
+                "minecraft:max_damage": 46,
+                "minecraft:custom_data": "{cursed_item:1b}"
               }
             },
             {
@@ -627,7 +630,8 @@
             {
               "function": "minecraft:set_components",
               "components": {
-                "minecraft:max_damage": 32
+                "minecraft:max_damage": 32,
+                "minecraft:custom_data": "{cursed_item:1b}"
               }
             },
             {
@@ -659,7 +663,8 @@
             {
               "function": "minecraft:set_components",
               "components": {
-                "minecraft:max_damage": 50
+                "minecraft:max_damage": 50,
+                "minecraft:custom_data": "{cursed_item:1b}"
               }
             },
             {
@@ -691,7 +696,8 @@
             {
               "function": "minecraft:set_components",
               "components": {
-                "minecraft:max_damage": 38
+                "minecraft:max_damage": 38,
+                "minecraft:custom_data": "{cursed_item:1b}"
               }
             },
             {
@@ -723,7 +729,8 @@
             {
               "function": "minecraft:set_components",
               "components": {
-                "minecraft:max_damage": 32
+                "minecraft:max_damage": 32,
+                "minecraft:custom_data": "{cursed_item:1b}"
               }
             },
             {
@@ -755,7 +762,8 @@
             {
               "function": "minecraft:set_components",
               "components": {
-                "minecraft:max_damage": 55
+                "minecraft:max_damage": 55,
+                "minecraft:custom_data": "{cursed_item:1b}"
               }
             },
             {
@@ -799,7 +807,8 @@
             {
               "function": "minecraft:set_components",
               "components": {
-                "minecraft:max_damage": 80
+                "minecraft:max_damage": 80,
+                "minecraft:custom_data": "{cursed_item:1b}"
               }
             }
           ],
@@ -820,7 +829,8 @@
             {
               "function": "minecraft:set_components",
               "components": {
-                "minecraft:max_damage": 75
+                "minecraft:max_damage": 75,
+                "minecraft:custom_data": "{cursed_item:1b}"
               }
             },
             {
@@ -853,7 +863,8 @@
             {
               "function": "minecraft:set_components",
               "components": {
-                "minecraft:max_damage": 65
+                "minecraft:max_damage": 65,
+                "minecraft:custom_data": "{cursed_item:1b}"
               }
             },
             {
@@ -897,7 +908,8 @@
             {
               "function": "minecraft:set_components",
               "components": {
-                "minecraft:max_damage": 33
+                "minecraft:max_damage": 33,
+                "minecraft:custom_data": "{cursed_item:1b}"
               }
             }
           ]
@@ -909,7 +921,8 @@
             {
               "function": "minecraft:set_components",
               "components": {
-                "minecraft:max_damage": 43
+                "minecraft:max_damage": 43,
+                "minecraft:custom_data": "{cursed_item:1b}"
               }
             },
             {

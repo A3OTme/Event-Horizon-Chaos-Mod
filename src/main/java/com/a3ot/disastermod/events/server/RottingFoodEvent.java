@@ -15,7 +15,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -54,7 +53,7 @@ public class RottingFoodEvent implements AbstractEvent, IActiveStateEvent {
     public static void livingDamage(LivingEntity entity, @Nullable DamageSource damageSource) {
         if (!active || damageSource == null) return;
         if (!(entity instanceof ServerPlayer player)) return;
-        if (!Utils.isPlayerValid(player)) return;
+        if (!Utils.isValidPlayer(player)) return;
 
         Entity attacker = damageSource.getEntity();
         if (!(attacker instanceof LivingEntity livingAttacker) || !livingAttacker.getType().is(EntityTypeTags.UNDEAD)) {

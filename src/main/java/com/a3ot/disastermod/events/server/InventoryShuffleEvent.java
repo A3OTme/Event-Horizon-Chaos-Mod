@@ -50,7 +50,7 @@ public class InventoryShuffleEvent implements AbstractEvent, IActiveStateEvent{
     public static void handleKeybinds() {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player != null && mc.options.keyInventory.consumeClick()) {
-            if (Utils.isPlayerValid(mc.player)) {
+            if (Utils.isValidPlayer(mc.player)) {
                 NetworkHandler.sendToServer(new ShuffleRequestPacket());
             }
             mc.setScreen(new InventoryScreen(mc.player));

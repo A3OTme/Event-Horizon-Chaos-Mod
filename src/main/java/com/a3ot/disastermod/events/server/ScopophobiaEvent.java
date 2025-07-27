@@ -54,7 +54,7 @@ public class ScopophobiaEvent implements AbstractEvent, IActiveStateEvent {
     public static void playerTick(Player player) {
         if (!active) return;
         if (!(player instanceof ServerPlayer serverPlayer)) return;
-        if (!Utils.isPlayerValid(serverPlayer)) return;
+        if (!Utils.isValidPlayer(serverPlayer)) return;
         long currentTime = player.level().getGameTime();
         if (cooldowns.containsKey(player) && cooldowns.get(player) > currentTime) return;
         ItemStack headItem = player.getItemBySlot(EquipmentSlot.HEAD);

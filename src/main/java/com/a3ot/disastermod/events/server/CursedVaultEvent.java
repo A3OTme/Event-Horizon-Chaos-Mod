@@ -12,7 +12,7 @@ import net.minecraft.sounds.SoundEvents;
 public class CursedVaultEvent implements AbstractEvent {
     @Override
     public void onStart(ServerLevel level) {
-        level.players().stream().filter(Utils::isPlayerValid).forEach(player -> Utils.giveItem(player, CursedVault.createForGameplay(level)));
+        level.players().stream().filter(Utils::isValidPlayer).forEach(player -> Utils.giveItem(player, CursedVault.createForGameplay(level)));
     }
 
     @Override

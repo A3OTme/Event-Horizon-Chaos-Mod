@@ -32,7 +32,7 @@ public record ClientEventPacket(String eventName, EventType eventType) implement
             );
         } else {
             server.getPlayerList().getPlayers().forEach(player -> {
-                if (Utils.isPlayerValid(player)) {
+                if (Utils.isValidPlayer(player)) {
                     NetworkHandler.sendToClient(player, new ClientEventPacket(eventName, type));
                 } else {
                     NetworkHandler.sendToClient(player, new ClientEventPacket(eventName, EventType.END));

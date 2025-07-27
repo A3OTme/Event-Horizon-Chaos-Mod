@@ -8,7 +8,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.ArrayList;
@@ -17,7 +16,7 @@ import java.util.List;
 public class InventoryCrossEvent implements AbstractEvent {
     @Override
     public void onStart(ServerLevel level) {
-        List<ServerPlayer> players = level.players().stream().filter(Utils::isPlayerValid).toList();
+        List<ServerPlayer> players = level.players().stream().filter(Utils::isValidPlayer).toList();
 
         if (players.size() < 2) return;
 

@@ -3,6 +3,7 @@ package com.a3ot.disastermod.events.server;
 import com.a3ot.disastermod.events.AbstractEvent;
 import com.a3ot.disastermod.events.EventType;
 import com.a3ot.disastermod.events.subclasses.IActiveStateEvent;
+import com.a3ot.disastermod.events.utils.Utils;
 import com.a3ot.disastermod.network.NetworkHandler;
 import com.a3ot.disastermod.network.packet.ItemActivationPacket;
 import net.minecraft.server.level.ServerLevel;
@@ -46,8 +47,9 @@ public class AllItemsAreTotemEvent implements AbstractEvent, IActiveStateEvent {
 
     public static boolean livingDeath(LivingEntity entity, DamageSource damageSource){
         if (!active) return false;
-        if (!(entity instanceof ServerPlayer player)) return false;
         if (damageSource.is(DamageTypeTags.BYPASSES_INVULNERABILITY)) return false;
+        if (!(entity instanceof ServerPlayer player)) return false;
+        if (!Utils.isValidDeadPlayer(player)) return false;
         ItemStack usedStack = null;
         for (InteractionHand hand : InteractionHand.values()) {
             ItemStack stack = player.getItemInHand(hand);

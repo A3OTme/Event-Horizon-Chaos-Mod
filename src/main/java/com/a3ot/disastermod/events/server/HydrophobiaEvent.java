@@ -31,7 +31,7 @@ public class HydrophobiaEvent implements AbstractEvent, IActiveStateEvent {
     @Override
     public void onStart(ServerLevel level) {
         if (level.dimension() == Level.OVERWORLD) level.setWeatherParameters(0, 99999999, true, false);
-        level.players().stream().filter(Utils::isPlayerValid).forEach(player -> {
+        level.players().stream().filter(Utils::isValidPlayer).forEach(player -> {
             BlockPos pos = player.blockPosition().above(3);
             int x = pos.getX();
             int z = pos.getZ();
@@ -52,7 +52,7 @@ public class HydrophobiaEvent implements AbstractEvent, IActiveStateEvent {
 
     public static void playerTick(Player player, Level level){
         if(!active) return;
-        if(!Utils.isPlayerValid(player)) return;
+        if(!Utils.isValidPlayer(player)) return;
         if (player.isInWaterRainOrBubble()) {
             DamageSource botanophobiaDamage = level.damageSources().source(ModDamageTypes.HYDROPHOBIA);
             player.hurt(botanophobiaDamage, 2.0F);

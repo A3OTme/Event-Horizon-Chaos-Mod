@@ -20,7 +20,7 @@ public class NoGravityEvent extends AbstractAttributeEvent {
 
     @Override
     public void onStart(ServerLevel level) {
-        level.players().stream().filter(Utils::isPlayerValid).forEach(player -> {
+        level.players().stream().filter(Utils::isValidPlayer).forEach(player -> {
             player.setDeltaMovement(0, 1, 0);
             player.hurtMarked = true;
             player.resetFallDistance();

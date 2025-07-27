@@ -14,7 +14,7 @@ public class RandomEffectEvent implements AbstractEvent {
     @Override
     public void onStart(ServerLevel level) {
         Registry<MobEffect> mobEffectsRegistry = level.registryAccess().registryOrThrow(Registries.MOB_EFFECT);
-        level.players().stream().filter(Utils::isPlayerValid).forEach(player -> {
+        level.players().stream().filter(Utils::isValidPlayer).forEach(player -> {
             for (int i = 0; i < 3; i++) {
                 Holder<MobEffect> randomEffectHolder = mobEffectsRegistry.getRandom(level.random).orElseThrow();
                 MobEffect effect = randomEffectHolder.value();

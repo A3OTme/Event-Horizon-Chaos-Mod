@@ -26,7 +26,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> {
     public void flatterRender(T entityIn, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, CallbackInfo cir) {
         if (ClientVariables.wideMobs) {
             if (entityIn instanceof Player player) {
-                if (Utils.isPlayerValid(player)) poseStack.scale(3, 1, 3);
+                if (Utils.isValidPlayer(player)) poseStack.scale(3, 1, 3);
             }
             else poseStack.scale(3, 1, 3);
         }

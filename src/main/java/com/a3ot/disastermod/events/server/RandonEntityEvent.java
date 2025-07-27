@@ -25,7 +25,7 @@ public class RandonEntityEvent implements AbstractEvent {
 
     @Override
     public void onStart(ServerLevel level) {
-        level.players().stream().filter(Utils::isPlayerValid).forEach(player -> {
+        level.players().stream().filter(Utils::isValidPlayer).forEach(player -> {
             if (!player.isAlive()) return;
             RandomSource random = level.random;
             Vec3 playerPos = player.position();

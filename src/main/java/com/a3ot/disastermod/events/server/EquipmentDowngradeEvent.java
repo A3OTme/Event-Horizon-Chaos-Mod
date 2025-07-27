@@ -72,9 +72,4 @@ public class EquipmentDowngradeEvent extends AbstractEquipmentTransformEvent {
     public SoundEvent getSound() {
         return SoundEvents.GRINDSTONE_USE;
     }
-
-    @Override
-    public double getDefaultDurationMultiplier() {
-        return 0;
-    }
 }

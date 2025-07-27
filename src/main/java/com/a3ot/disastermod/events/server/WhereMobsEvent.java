@@ -41,7 +41,7 @@ public class WhereMobsEvent implements AbstractEvent {
 
     @Override
     public void playerRespawnOrJoin(Player player, Level level){
-        if(!(Utils.isPlayerValid(player))) return;
+        if(!(Utils.isValidPlayer(player))) return;
         List<LivingEntity> nearbyMobs = player.level().getEntitiesOfClass(
                 LivingEntity.class,
                 player.getBoundingBox().inflate(10)

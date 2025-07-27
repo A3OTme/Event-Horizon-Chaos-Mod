@@ -1,9 +1,18 @@
 package com.a3ot.disastermod.events.subclasses;
 
+import com.a3ot.disastermod.Disastermod;
+import com.a3ot.disastermod.data.ModDataComponents;
+import com.a3ot.disastermod.data.ModTags;
+import com.a3ot.disastermod.events.server.ReducedDurabilityEvent;
 import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponentPatch;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 
@@ -38,16 +47,42 @@ public abstract class AbstractEquipmentTransformEvent extends AbstractInventoryE
 
         if (newItem.isEmpty()) return stack;
 
-        ItemEnchantments enchantments = stack.getTagEnchantments();
+        Integer currentMaxDamage = stack.get(ModDataComponents.ORIGINAL_MAX_DAMAGE.get());
+        if (currentMaxDamage != null) {
+            stack.set(DataComponents.MAX_DAMAGE, currentMaxDamage);
+            stack.remove(ModDataComponents.ORIGINAL_MAX_DAMAGE.get());
+
+            Integer currentDamage = stack.get(DataComponents.DAMAGE);
+            if (currentDamage == null || currentDamage <= 0) return stack;
+            stack.set(DataComponents.DAMAGE, currentDamage * 3);
+        }
+
         ItemStack transformed = new ItemStack(newItem.get(), stack.getCount());
 
-        int maxDamage = transformed.getMaxDamage();
-        int scaledDamage = Math.min(
-                (int) ((double) stack.getDamageValue() / stack.getMaxDamage() * maxDamage),
-                maxDamage - 1
-        );
-        transformed.setDamageValue(scaledDamage);
+        DataComponentPatch originalPatch = stack.getComponentsPatch();
+        transformed.applyComponents(originalPatch);
+
+        boolean isNotCursedItem = true;
+        CustomData customDataComponent = stack.get(DataComponents.CUSTOM_DATA);
+        if (customDataComponent != null) {
+            CompoundTag customDataTag = customDataComponent.getUnsafe();
+            isNotCursedItem = !customDataTag.getBoolean("cursed_item");
+        }
+
+        if (isNotCursedItem){
+            int maxDamage = transformed.getMaxDamage();
+            int scaledDamage = Math.min(
+                    (int) ((double) stack.getDamageValue() / stack.getMaxDamage() * maxDamage),
+                    maxDamage - 1
+            );
+            transformed.setDamageValue(scaledDamage);
+        }
+
+        ItemEnchantments enchantments = stack.getTagEnchantments();
         EnchantmentHelper.setEnchantments(transformed, enchantments);
+
+        ItemAttributeModifiers originalAttributes = stack.getOrDefault(DataComponents.ATTRIBUTE_MODIFIERS, ItemAttributeModifiers.EMPTY);
+        transformed.set(DataComponents.ATTRIBUTE_MODIFIERS, originalAttributes);
 
         return transformed;
     }

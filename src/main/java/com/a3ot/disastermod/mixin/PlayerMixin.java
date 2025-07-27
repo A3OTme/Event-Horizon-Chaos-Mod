@@ -14,7 +14,7 @@ public class PlayerMixin {
     @Inject(method = "updatePlayerPose", at = @At("HEAD"), cancellable = true)
     private void modifyPlayerPose(CallbackInfo ci) {
         Player player = (Player) (Object) this;
-        if (ClientVariables.onlySwimmingActive && Utils.isPlayerValid(player)) {
+        if (ClientVariables.onlySwimmingActive && Utils.isValidPlayer(player)) {
             player.setForcedPose(null);
             player.setPose(Pose.SWIMMING);
             ci.cancel();
