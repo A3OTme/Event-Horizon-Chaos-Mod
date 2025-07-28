@@ -1,4 +1,4 @@
-package com.a3ot.disastermod.mixin.client;
+package com.a3ot.disastermod.mixin.client.model;
 
 import com.a3ot.disastermod.events.both.ChibiEvent;
 import com.a3ot.disastermod.mixin.accessor.HumanoidModelAccessor;

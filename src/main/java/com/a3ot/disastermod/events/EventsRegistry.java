@@ -86,6 +86,7 @@ public class EventsRegistry {
         DISASTER_EVENTS.add(new CurseOfVanishingEvent());
         DISASTER_EVENTS.add(new RandomSoundsEvent());
         DISASTER_EVENTS.add(new BonemealOnSneakEvent());
+        DISASTER_EVENTS.add(new PetCarrierEvent());
 
         for (AbstractEvent event : DISASTER_EVENTS) {
             EVENT_MAP.put(event.getConfigName(), event);
