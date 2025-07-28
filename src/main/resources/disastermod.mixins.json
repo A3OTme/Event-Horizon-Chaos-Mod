@@ -19,6 +19,7 @@
     "client.HumanoidModelMixin",
     "client.MinecraftMixin",
     "client.PlayerModelMixin",
+    "client.AbstractSoundInstanceMixin",
     "client.SoundEngineMixin",
     "client.StringSplitterMixin",
     "client.UnitDoubleMixin",

@@ -38,7 +38,7 @@ public class RandomBlockDropEvent implements AbstractEvent, IActiveStateEvent {
     }
 
     @Override
-    public double getDurationMultiplier() {
+    public double getDefaultDurationMultiplier() {
         return 1;
     }
 }

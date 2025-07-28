@@ -6,16 +6,16 @@ import com.a3ot.disastermod.handlers.client.ClientVariables;
 import net.minecraft.ChatFormatting;
 import net.minecraft.world.level.Level;
 
-public class MutedEvent implements AbstractEvent {
+public class RandomSoundsEvent implements AbstractEvent {
 
     @Override
     public void onClientStart(Level level) {
-        ClientVariables.muted = true;
+        ClientVariables.randomSounds = true;
     }
 
     @Override
     public void onClientEnd(Level level) {
-        ClientVariables.muted = false;
+        ClientVariables.randomSounds = false;
     }
 
     @Override
@@ -25,11 +25,11 @@ public class MutedEvent implements AbstractEvent {
 
     @Override
     public ChatFormatting getColor() {
-        return ChatFormatting.DARK_GRAY;
+        return ChatFormatting.BLUE;
     }
 
     @Override
     public boolean conflictsWith(AbstractEvent other) {
-        return other instanceof RandomSoundsEvent;
+        return other instanceof MutedEvent;
     }
 }

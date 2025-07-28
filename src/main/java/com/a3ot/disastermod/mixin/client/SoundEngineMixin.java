@@ -1,8 +1,5 @@
 package com.a3ot.disastermod.mixin.client;
 
-import com.a3ot.disastermod.events.client.MutedEvent;
-import com.a3ot.disastermod.events.client.PitchMaxEventEvent;
-import com.a3ot.disastermod.events.client.PitchMinEventEvent;
 import com.a3ot.disastermod.handlers.client.ClientVariables;
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.client.sounds.SoundEngine;
@@ -29,6 +26,7 @@ public class SoundEngineMixin {
         if (ClientVariables.muted) return 0.0F;
         return Mth.clamp(volumeMultiplier * ((SoundEngine) (Object) this).getVolume(source), 0.0F, 1.0F);
     }
+
     @Redirect(
             method = "calculatePitch(Lnet/minecraft/client/resources/sounds/SoundInstance;)F",
             at = @At(

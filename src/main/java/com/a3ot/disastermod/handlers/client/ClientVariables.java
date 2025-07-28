@@ -25,7 +25,8 @@ public class ClientVariables {
             smoothCamera,
             onlySwimmingActive,
             shakyCrosshair,
-            noTransparency
+            noTransparency,
+            randomSounds
                     = false;
 
     @SubscribeEvent
@@ -49,6 +50,7 @@ public class ClientVariables {
         onlySwimmingActive =
         shakyCrosshair =
         noTransparency =
+        randomSounds =
         false;
     }
 
