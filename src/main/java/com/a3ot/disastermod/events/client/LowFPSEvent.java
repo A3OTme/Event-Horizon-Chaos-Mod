@@ -13,12 +13,6 @@ public class LowFPSEvent implements AbstractEvent {
     private static Integer originalFPS = null;
 
     @OnlyIn(Dist.CLIENT)
-    public void onStart(Level level) {
-        Minecraft mc = Minecraft.getInstance();
-        originalFPS = mc.options.framerateLimit().get();
-    }
-
-    @OnlyIn(Dist.CLIENT)
     public void onClientTick(Level level) {
         Minecraft mc = Minecraft.getInstance();
         if (originalFPS == null) originalFPS = mc.options.framerateLimit().get();

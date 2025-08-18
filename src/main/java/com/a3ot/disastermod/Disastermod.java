@@ -3,6 +3,7 @@ package com.a3ot.disastermod;
 import com.a3ot.disastermod.config.GeneralConfig;
 import com.a3ot.disastermod.data.ModDataComponents;
 import com.a3ot.disastermod.events.EventsRegistry;
+import com.a3ot.disastermod.events.utils.ModCatVariants;
 import com.a3ot.disastermod.handlers.*;
 import com.a3ot.disastermod.network.NetworkHandler;
 import com.a3ot.disastermod.registry.ModCreativeModeTabs;
@@ -27,6 +28,7 @@ public class Disastermod {
     public Disastermod(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
         ModDataComponents.DATA_COMPONENT_TYPES.register(modEventBus);
+        ModCatVariants.CAT_VARIANTS.register(modEventBus);
         modEventBus.register(ConfigHandler.class);
         modEventBus.register(NetworkHandler.class);
         NeoForge.EVENT_BUS.register(BlockHandler.class);

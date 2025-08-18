@@ -2,9 +2,12 @@ package com.a3ot.disastermod.events.server;
 
 import com.a3ot.disastermod.events.AbstractEvent;
 import com.a3ot.disastermod.events.utils.IActiveStateEvent;
+import net.minecraft.ChatFormatting;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.Level;
 
-public class UnknownEvent implements AbstractEvent, IActiveStateEvent {
+public class DamageBringsToExplosionEvent implements AbstractEvent, IActiveStateEvent {
     private static boolean active = false;
 
     @Override
@@ -31,8 +34,13 @@ public class UnknownEvent implements AbstractEvent, IActiveStateEvent {
         this.setInactive();
     }
 
+    public static void livingDamage(LivingEntity entity) {
+        if (!active) return;
+        entity.level().explode(entity, entity.getX(), entity.getY(), entity.getZ(), 4, Level.ExplosionInteraction.MOB);
+    }
+
     @Override
-    public double getDefaultDurationMultiplier() {
-        return 3;
+    public ChatFormatting getColor() {
+        return ChatFormatting.RED;
     }
 }

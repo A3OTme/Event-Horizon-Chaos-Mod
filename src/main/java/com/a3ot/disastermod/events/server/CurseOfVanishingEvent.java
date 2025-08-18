@@ -1,9 +1,8 @@
 package com.a3ot.disastermod.events.server;
 
-import com.a3ot.disastermod.Disastermod;
 import com.a3ot.disastermod.events.AbstractEvent;
 import com.a3ot.disastermod.events.subclasses.AbstractInventoryEvent;
-import com.a3ot.disastermod.events.subclasses.IActiveStateEvent;
+import com.a3ot.disastermod.events.utils.IActiveStateEvent;
 import com.a3ot.disastermod.events.utils.Utils;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
@@ -11,7 +10,6 @@ import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;

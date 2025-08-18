@@ -2,7 +2,7 @@ package com.a3ot.disastermod.events.server;
 
 import com.a3ot.disastermod.events.AbstractEvent;
 import com.a3ot.disastermod.events.EventType;
-import com.a3ot.disastermod.events.subclasses.IActiveStateEvent;
+import com.a3ot.disastermod.events.utils.IActiveStateEvent;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;

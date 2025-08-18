@@ -2,28 +2,32 @@ package com.a3ot.disastermod.events.client;
 
 import com.a3ot.disastermod.events.AbstractEvent;
 import com.a3ot.disastermod.events.EventSide;
+import com.a3ot.disastermod.events.EventType;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.NarratorStatus;
 import net.minecraft.world.level.Level;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 
-public class LowRenderDistanceEvent implements AbstractEvent {
-    private static Integer originalDistance = null;
+public class ForceNarratorEvent implements AbstractEvent {
+    private static NarratorStatus originalNarratorStatus = null;
 
+    @Override
     @OnlyIn(Dist.CLIENT)
     public void onClientTick(Level level) {
         Minecraft mc = Minecraft.getInstance();
-        if (originalDistance == null) originalDistance = mc.options.renderDistance().get();
-        mc.options.renderDistance().set(2);
+        if (originalNarratorStatus == null) originalNarratorStatus = mc.options.narrator().get();
+        mc.options.narrator().set(NarratorStatus.ALL);
     }
 
+    @Override
     @OnlyIn(Dist.CLIENT)
     public void onClientEnd(Level level) {
         Minecraft mc = Minecraft.getInstance();
-        if (originalDistance != null){
-            mc.options.renderDistance().set(originalDistance);
-            originalDistance = null;
+        if (originalNarratorStatus != null){
+            mc.options.narrator().set(originalNarratorStatus);
+            originalNarratorStatus = null;
         }
     }
 
@@ -39,6 +43,16 @@ public class LowRenderDistanceEvent implements AbstractEvent {
 
     @Override
     public ChatFormatting getColor() {
-        return ChatFormatting.GRAY;
+        return ChatFormatting.BLUE;
+    }
+
+    @Override
+    public double getDefaultDurationMultiplier() {
+        return 4;
+    }
+
+    @Override
+    public EventType getType() {
+        return EventType.NEUTRAL;
     }
 }

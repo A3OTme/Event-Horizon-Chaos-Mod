@@ -31,8 +31,7 @@ public class PlayerHandler {
         if (level.isClientSide()) return;
 
         DementiaEvent.playerTick(player);
-        ScopophobiaEvent.playerTick(player);
-        HydrophobiaEvent.playerTick(player, level);
+        EnderBloodEvent.playerTick(player, level);
         BotanophobiaEvent.playerTick(player, level);
         FloorIsMagmaEvent.playerTick(player, level);
         NyctophobiaEvent.playerTick(player, level);
@@ -60,6 +59,7 @@ public class PlayerHandler {
         DamageSource damageSource = event.getSource();
         RottingFoodEvent.livingDamage(entity, damageSource);
         EnderBloodEvent.livingDamage(entity);
+        DamageBringsToExplosionEvent.livingDamage(entity);
     }
 
     @SubscribeEvent

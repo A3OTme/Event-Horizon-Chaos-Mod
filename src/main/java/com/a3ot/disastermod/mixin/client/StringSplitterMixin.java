@@ -1,7 +1,7 @@
 package com.a3ot.disastermod.mixin.client;
 
 import com.a3ot.disastermod.events.client.CuteFontEvent;
-import com.a3ot.disastermod.events.subclasses.CuteOrderedText;
+import com.a3ot.disastermod.events.utils.CuteOrderedText;
 import com.a3ot.disastermod.handlers.client.ClientVariables;
 import net.minecraft.client.StringSplitter;
 import net.minecraft.network.chat.FormattedText;

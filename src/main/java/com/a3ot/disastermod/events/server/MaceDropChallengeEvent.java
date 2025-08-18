@@ -44,8 +44,8 @@ public class MaceDropChallengeEvent implements AbstractEvent {
                 mace.setDamageValue(mace.getMaxDamage() - 3);
                 Utils.changeItemInHand(player, mace);
 
-                player.setDeltaMovement(0, 10, 0);
                 player.hurtMarked = true;
+                player.setDeltaMovement(0, 10, 0);
             }
         });
     }

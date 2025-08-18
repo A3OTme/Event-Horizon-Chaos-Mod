@@ -48,7 +48,6 @@ public class EventsRegistry {
         DISASTER_EVENTS.add(new MutedEvent());
         DISASTER_EVENTS.add(new PitchMaxEventEvent());
         DISASTER_EVENTS.add(new PitchMinEventEvent());
-        DISASTER_EVENTS.add(new HydrophobiaEvent());
         DISASTER_EVENTS.add(new ArcheologyPlusEvent());
         DISASTER_EVENTS.add(new OnlyNegativeEventsEvent());
         DISASTER_EVENTS.add(new OnlyPositiveEventsEvent());
@@ -59,7 +58,6 @@ public class EventsRegistry {
         DISASTER_EVENTS.add(new ChangeDimensionEvent());
         DISASTER_EVENTS.add(new UnknownEvent());
         DISASTER_EVENTS.add(new SmoothCameraEvent());
-        DISASTER_EVENTS.add(new ScopophobiaEvent());
         DISASTER_EVENTS.add(new GillsEvent());
         DISASTER_EVENTS.add(new WhereMobsEvent());
         DISASTER_EVENTS.add(new FluidWalkerEvent());
@@ -87,6 +85,9 @@ public class EventsRegistry {
         DISASTER_EVENTS.add(new RandomSoundsEvent());
         DISASTER_EVENTS.add(new BonemealOnSneakEvent());
         DISASTER_EVENTS.add(new PetCarrierEvent());
+        DISASTER_EVENTS.add(new ForceNarratorEvent());
+        DISASTER_EVENTS.add(new DamageBringsToExplosionEvent());
+        DISASTER_EVENTS.add(new DeleteChunkEvent());
 
         for (AbstractEvent event : DISASTER_EVENTS) {
             EVENT_MAP.put(event.getConfigName(), event);

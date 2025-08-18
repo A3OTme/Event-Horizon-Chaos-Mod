@@ -12,7 +12,7 @@ public class ModEnumParams {
     public static Object getHydrophobiaParams(int idx, Class<?> type) {
         return switch (idx) {
             case 0 -> "disastermod:hydrophobia"; // id
-            case 1 -> (Supplier<SoundEvent>) () -> SoundEvents.SNIFFER_HURT; //sound
+            case 1 -> (Supplier<SoundEvent>) () -> SoundEvents.ENDERMAN_HURT; //sound
             default -> throw new IllegalArgumentException("Unexpected parameter index: " + idx);
         };
     }
