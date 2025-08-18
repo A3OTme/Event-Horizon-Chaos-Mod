@@ -1,4 +1,4 @@
-package com.a3ot.disastermod.events.subclasses;
+package com.a3ot.disastermod.events.utils;
 
 public interface IActiveStateEvent {
     void setActive();

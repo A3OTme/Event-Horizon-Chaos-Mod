@@ -14,13 +14,6 @@ public class FullBrightnessEvent implements AbstractEvent {
 
     @Override
     @OnlyIn(Dist.CLIENT)
-    public void onClientStart(Level level) {
-        Minecraft mc = Minecraft.getInstance();
-        originalBrightness = mc.options.gamma().get();
-    }
-
-    @Override
-    @OnlyIn(Dist.CLIENT)
     public void onClientTick(Level level) {
         Minecraft mc = Minecraft.getInstance();
         if (originalBrightness == null) originalBrightness = mc.options.gamma().get();

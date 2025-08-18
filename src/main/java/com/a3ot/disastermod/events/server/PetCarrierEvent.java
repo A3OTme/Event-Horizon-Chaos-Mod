@@ -2,9 +2,9 @@ package com.a3ot.disastermod.events.server;
 
 import com.a3ot.disastermod.events.AbstractEvent;
 import com.a3ot.disastermod.events.EventType;
+import com.a3ot.disastermod.events.utils.ModCatVariants;
 import com.a3ot.disastermod.events.utils.Utils;
 import net.minecraft.core.Holder;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -19,11 +19,10 @@ import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.inventory.PlayerEnderChestContainer;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 
-public class PetCarrierEvent implements AbstractEvent { //todo EnderBackpackLayer
-    private static final List<Holder<CatVariant>> CAT_VARIANTS = BuiltInRegistries.CAT_VARIANT.holders().collect(Collectors.toList());
+public class PetCarrierEvent implements AbstractEvent { //todo add Ender Backpack Layer and Upgrade Cats Textures
+    private static final List<Holder<CatVariant>> CAT_VARIANTS = ModCatVariants.getAllCatVariants();
     public static final String PET_CARRIER_CAT_TAG = "disastermod:pet_carrier_cat";
 
     @Override

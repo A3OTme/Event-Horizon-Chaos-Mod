@@ -1,4 +1,4 @@
-package com.a3ot.disastermod.events.subclasses;
+package com.a3ot.disastermod.events.utils;
 
 import net.minecraft.network.chat.Style;
 

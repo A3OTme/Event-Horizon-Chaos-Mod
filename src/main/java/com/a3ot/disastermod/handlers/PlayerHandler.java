@@ -60,6 +60,7 @@ public class PlayerHandler {
         DamageSource damageSource = event.getSource();
         RottingFoodEvent.livingDamage(entity, damageSource);
         EnderBloodEvent.livingDamage(entity);
+        DamageBringsToExplosionEvent.livingDamage(entity);
     }
 
     @SubscribeEvent

@@ -2,7 +2,7 @@ package com.a3ot.disastermod.events.server;
 
 import com.a3ot.disastermod.events.AbstractEvent;
 import com.a3ot.disastermod.events.EventType;
-import com.a3ot.disastermod.events.subclasses.IActiveStateEvent;
+import com.a3ot.disastermod.events.utils.IActiveStateEvent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
