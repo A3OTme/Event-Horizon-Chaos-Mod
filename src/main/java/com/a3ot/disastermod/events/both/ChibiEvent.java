@@ -14,11 +14,11 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
 
 public class ChibiEvent extends AbstractPlayerAttributeEvent {
-    private static final ResourceLocation SCALE = ResourceLocation.fromNamespaceAndPath(Disastermod.MODID, "chibi");
+    private static final ResourceLocation CHIBI_ID = ResourceLocation.fromNamespaceAndPath(Disastermod.MODID, "chibi");
 
     @Override
     protected void defineModifiers() {
-        modifiers.put(Attributes.SCALE, new AttributeModifier(SCALE, -0.6, AttributeModifier.Operation.ADD_VALUE));
+        modifiers.put(Attributes.SCALE, new AttributeModifier(CHIBI_ID, -0.6, AttributeModifier.Operation.ADD_VALUE));
     }
 
     @Override

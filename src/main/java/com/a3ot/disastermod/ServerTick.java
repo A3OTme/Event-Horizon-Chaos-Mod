@@ -13,6 +13,8 @@ import com.a3ot.disastermod.network.packet.ClientEventPacket;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.level.GameRules;
+import net.neoforged.neoforge.event.GameShuttingDownEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -49,20 +51,22 @@ public class ServerTick {
             if (isEnabled) {
                 TimerBossBar.initialize(server);
                 ActiveEventScoreBoard.initialize(server);
+                server.getGameRules().getRule(GameRules.RULE_DAYLIGHT).set(isRunning, server);
             } else {
                 TimerBossBar.deinitialize(server);
                 ActiveEventScoreBoard.deinitialize(server);
-                resetTimerAndEvents();
+                resetTimerAndEvents(server);
             }
             wasEnabled = isEnabled;
         }
         return !isEnabled;
     }
 
-    private static void resetTimerAndEvents() {
+    private static void resetTimerAndEvents(MinecraftServer server) {
         isRunning = false;
         tickCounter = 0;
         ACTIVE_EVENTS.clear(); //todo Очистить эффекты и только потом очистить Map
+        server.getGameRules().getRule(GameRules.RULE_DAYLIGHT).set(true, server);
     }
 
     private static void checkWarningTicks(MinecraftServer server) {
@@ -102,8 +106,8 @@ public class ServerTick {
         server.getAllLevels().forEach(level -> {
             if (event.getSide() != EventSide.CLIENT) event.onStart(level);
             if (event.getSide() != EventSide.SERVER) ClientEventPacket.sendClientEventPacket(event, ClientEventPacket.EventType.START, server);
-            if (!UnknownEvent.isActive() || event instanceof UnknownEvent) event.sendEventNotification(level, event);
         });
+        if (!UnknownEvent.isActive() || event instanceof UnknownEvent) event.sendEventNotification(server, event);
     }
 
     public static void addActiveEvent(AbstractEvent newEvent, MinecraftServer server) {
@@ -198,6 +202,7 @@ public class ServerTick {
             }
             if (event.getSide() != EventSide.SERVER) ClientEventPacket.sendClientEventPacket(event, ClientEventPacket.EventType.START, server);
         }
+        server.getGameRules().getRule(GameRules.RULE_DAYLIGHT).set(true, server);
     }
 
     public static void pause(MinecraftServer server) {
@@ -207,6 +212,7 @@ public class ServerTick {
             if (event.getSide() != EventSide.CLIENT) server.getAllLevels().forEach(event::onEnd);
             if (event.getSide() != EventSide.SERVER) ClientEventPacket.sendClientEventPacket(event, ClientEventPacket.EventType.END, server);
         }
+        server.getGameRules().getRule(GameRules.RULE_DAYLIGHT).set(false, server);
     }
 
     public static int getTickCounter() {

@@ -2,9 +2,10 @@ package com.a3ot.disastermod.events.server;
 
 import com.a3ot.disastermod.events.AbstractEvent;
 import com.a3ot.disastermod.events.EventType;
-import com.a3ot.disastermod.events.utils.Utils;
 import net.minecraft.ChatFormatting;
-import net.minecraft.core.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -13,64 +14,53 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 
 public class RandonEntityEvent implements AbstractEvent {
-    private static final int ENTITY_COUNT = 8;
-    private static final double SPAWN_RADIUS = 7.0;
 
     @Override
     public void onStart(ServerLevel level) {
-        level.players().stream().filter(Utils::isValidPlayer).forEach(player -> {
-            if (!player.isAlive()) return;
-            RandomSource random = level.random;
-            Vec3 playerPos = player.position();
+        RandomSource random = level.random;
+        Registry<EntityType<?>> entityTypeRegistry = level.registryAccess().registryOrThrow(Registries.ENTITY_TYPE);
+        List<EntityType<?>> summonableEntities = entityTypeRegistry.stream()
+                .filter(EntityType::canSummon)
+                .filter(type -> type != EntityType.ENDER_DRAGON)
+                .toList();
 
-            Utils.airFilling(
-                    level,
-                    new BlockPos((int) playerPos.x - ENTITY_COUNT - 3, (int) playerPos.y, (int) playerPos.z - ENTITY_COUNT - 3),
-                    new BlockPos((int) playerPos.x + ENTITY_COUNT + 3, (int) playerPos.y + 5, (int) playerPos.z + ENTITY_COUNT + 3)
-            );
-            for (int i = 0; i < ENTITY_COUNT; i++) {
-                try {
-                    Registry<EntityType<?>> entityTypeRegistry = level.registryAccess().registryOrThrow(Registries.ENTITY_TYPE);
-                    List<EntityType<?>> summonableEntities = entityTypeRegistry.stream()
-                            .filter(EntityType::canSummon)
-                            .toList();
+        for (Entity entity : level.getAllEntities()) {
+            if (entity == null) continue;
 
-                    if (summonableEntities.isEmpty()) continue;
+            if (!(entity instanceof Player) && !(entity instanceof EnderDragon)) {
+                Vec3 originalPos = entity.position();
+                BlockPos originalBlockPos = entity.blockPosition();
 
-                    EntityType<?> entityType = summonableEntities.get(random.nextInt(summonableEntities.size()));
-                    Holder<EntityType<?>> entityTypeHolder = entityTypeRegistry.wrapAsHolder(entityType);
-                    double distance = SPAWN_RADIUS;
-                    double angle = Math.toRadians(i * (double) 360 / ENTITY_COUNT);
-                    double x = playerPos.x + Math.cos(angle) * distance;
-                    double z = playerPos.z + Math.sin(angle) * distance;
-                    double y = playerPos.y;
+                EntityType<?> newEntityType = summonableEntities.get(random.nextInt(summonableEntities.size()));
+                Holder<EntityType<?>> newEntityTypeHolder = entityTypeRegistry.wrapAsHolder(newEntityType);
+                Entity newEntity = newEntityTypeHolder.value().create(level);
 
-                    Vec3 spawnPos = new Vec3(x, y, z);
-                    BlockPos belowPos = BlockPos.containing(spawnPos).below();
-                    BlockState belowState = level.getBlockState(belowPos);
-                    Entity entity = entityTypeHolder.value().create(level);
-                    if (entity != null) {
-                        if (belowState.isEmpty()) level.setBlock(belowPos, Blocks.STONE.defaultBlockState(), 3);
-                        entity.moveTo(spawnPos.x, spawnPos.y, spawnPos.z, entity.getYRot(), entity.getXRot());
-                        if (level.tryAddFreshEntityWithPassengers(entity)) {
-                            if (entity instanceof Mob mob) {
-                                mob.finalizeSpawn(level, level.getCurrentDifficultyAt(entity.blockPosition()), MobSpawnType.EVENT, null);
-                            }
+                if (newEntity != null) {
+                    newEntity.moveTo(originalPos.x, originalPos.y, originalPos.z, entity.getYRot(), entity.getXRot());
+                    entity.unRide();
+                    entity.discard();
+
+                    if (level.tryAddFreshEntityWithPassengers(newEntity)) {
+                        if (newEntity instanceof Mob newMob) {
+                            newMob.finalizeSpawn(level, level.getCurrentDifficultyAt(originalBlockPos), MobSpawnType.EVENT, null);
                         }
+                    } else {
+                        level.getServer().sendSystemMessage(Component.literal("Failed to spawn entity " + newEntityType + " at " + originalPos)
+                                .withStyle(ChatFormatting.RED));
                     }
-                } catch (Exception e) {
-                    level.getServer().sendSystemMessage(Component.literal("Entity spawn error: " + e.getMessage())
+                } else {
+                    level.getServer().sendSystemMessage(Component.literal("Failed to create entity " + newEntityType)
                             .withStyle(ChatFormatting.RED));
                 }
             }
-        });
+        }
     }
 
     @Override

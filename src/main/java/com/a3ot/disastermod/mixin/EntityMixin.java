@@ -6,8 +6,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.AABB;
@@ -20,10 +18,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.lang.reflect.Method;
 
 @Mixin(Entity.class)
 public class EntityMixin {
@@ -41,7 +37,13 @@ public class EntityMixin {
         Level level = entity.level();
         BlockPos sourcePos = entity.blockPosition();
 
-         if (original.y > 0) return original;
+        if (original.y > 0) return original;
+        BlockPos entityPos = entity.blockPosition();
+        BlockPos feetPos = entityPos.below();
+
+        FluidState fluidAtEntity = level.getFluidState(entityPos);
+
+        if (fluidAtEntity.isEmpty()) return original;
 
         int[][] offsets = {
                 {1, 0, 1}, {1, 0, 0}, {1, -1, 0}, {1, 0, -1},
@@ -73,7 +75,7 @@ public class EntityMixin {
         FluidCollisionEvent event = new FluidCollisionEvent(entity, highestFluid);
         NeoForge.EVENT_BUS.post(event);
 
-        if (event.isCanceled() && !entity.isShiftKeyDown() && !entity.isInWater()) {
+        if (event.isCanceled() && !entity.isShiftKeyDown()) {
             entity.fallDistance = 0F;
             entity.setOnGround(true);
             return new Vec3(original.x, highestValue, original.z);

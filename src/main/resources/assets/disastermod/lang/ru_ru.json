@@ -172,6 +172,28 @@
   "disastermod.configuration.onlySwimmingPose.tooltip": "",
   "disastermod.configuration.blindRage": "Слепая ярость",
   "disastermod.configuration.blindRage.tooltip": "",
+  "disastermod.configuration.noTransparency": "Без прозрачности",
+  "disastermod.configuration.noTransparency.tooltip": "",
+  "disastermod.configuration.damageBringsToExplosion": "Урон вызывает взрывы",
+  "disastermod.configuration.damageBringsToExplosion.tooltip": "",
+  "disastermod.configuration.lowGravity": "Низкая гравитация",
+  "disastermod.configuration.lowGravity.tooltip": "",
+  "disastermod.configuration.deleteChunk": "Удаление чанка",
+  "disastermod.configuration.deleteChunk.tooltip": "",
+  "disastermod.configuration.randomSounds": "Случайные звуки",
+  "disastermod.configuration.randomSounds.tooltip": "",
+  "disastermod.configuration.curseOfVanishing": "Проклятие исчезновения",
+  "disastermod.configuration.curseOfVanishing.tooltip": "",
+  "disastermod.configuration.shakyCrosshair": "Дрожащий прицел",
+  "disastermod.configuration.shakyCrosshair.tooltip": "",
+  "disastermod.configuration.petCarrier": "Питомец перенощик",
+  "disastermod.configuration.petCarrier.tooltip": "",
+  "disastermod.configuration.randomBlockDrop": "Выпадение случайных блоков",
+  "disastermod.configuration.randomBlockDrop.tooltip": "",
+  "disastermod.configuration.forceNarrator": "Принудительный диктор",
+  "disastermod.configuration.forceNarrator.tooltip": "",
+  "disastermod.configuration.bonemealCompost": "Компост из костной муки",
+  "disastermod.configuration.bonemealCompost.tooltip": "Надо поле притоптать!",
 
   "disastermod.configuration.returnToLastDeath.totem_of_undying": "Ты еще не умер, поздравляю",
 
@@ -185,6 +207,12 @@
   "block.disastermod.cursed_vault.lore": "Требует %s в качестве оплаты",
 
   "death.attack.disastermod.botanophobia": "%1$s погиб, пытаясь потрогать траву",
+  "death.attack.disastermod.botanophobia.player": "%1$s погиб из-за травы... а виноват во всём %2$s!",
+  "death.attack.disastermod.botanophobia.item": "%1$s погиб из-за травы, в которую его загнал %2$s с помощью %3$s!",
   "death.attack.disastermod.hydrophobia": "%1$s погиб, пытаясь потрогать воду",
-  "death.attack.disastermod.nyctophobia": "%1$s был до смерти напуган темнотой"
+  "death.attack.disastermod.hydrophobia.player": "%2$s предательски скинул %1$s в воду...",
+  "death.attack.disastermod.hydrophobia.item": "%2$s с помощью %3$s предательски скинул %1$s в воду...",
+  "death.attack.disastermod.nyctophobia": "%1$s был поглощён тьмой",
+  "death.attack.disastermod.nyctophobia.player": "%1$s решил, что спрятаться в темноте от %2$s — это хорошая идея",
+  "death.attack.disastermod.nyctophobia.item": "%1$s предпочёл уйти в темноту, чем сражаться с %2$s и его %3$s!"
 }

@@ -36,7 +36,7 @@ public class EventsRegistry {
         DISASTER_EVENTS.add(new NoJumpEvent());
         DISASTER_EVENTS.add(new UhcEvent());
         DISASTER_EVENTS.add(new EnderBloodEvent());
-        DISASTER_EVENTS.add(new MoonGravityEvent());
+        DISASTER_EVENTS.add(new LowGravityEvent());
         DISASTER_EVENTS.add(new NoGravityEvent());
         DISASTER_EVENTS.add(new CreativeFlyEvent());
         DISASTER_EVENTS.add(new KeepInventoryEvent());
@@ -83,7 +83,7 @@ public class EventsRegistry {
         DISASTER_EVENTS.add(new RandomBlockDropEvent());
         DISASTER_EVENTS.add(new CurseOfVanishingEvent());
         DISASTER_EVENTS.add(new RandomSoundsEvent());
-        DISASTER_EVENTS.add(new BonemealOnSneakEvent());
+        DISASTER_EVENTS.add(new BonemealCompostEvent());
         DISASTER_EVENTS.add(new PetCarrierEvent());
         DISASTER_EVENTS.add(new ForceNarratorEvent());
         DISASTER_EVENTS.add(new DamageBringsToExplosionEvent());

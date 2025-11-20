@@ -1,11 +1,13 @@
 package com.a3ot.disastermod;
 
+import com.a3ot.disastermod.config.ClientConfig;
 import com.a3ot.disastermod.config.GeneralConfig;
 import com.a3ot.disastermod.data.ModDataComponents;
 import com.a3ot.disastermod.events.EventsRegistry;
 import com.a3ot.disastermod.events.utils.ModCatVariants;
 import com.a3ot.disastermod.handlers.*;
 import com.a3ot.disastermod.network.NetworkHandler;
+import com.a3ot.disastermod.network.packet.SoundConfigPacket;
 import com.a3ot.disastermod.registry.ModCreativeModeTabs;
 import com.a3ot.disastermod.registry.ModItems;
 import org.slf4j.Logger;

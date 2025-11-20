@@ -8,7 +8,9 @@ import com.a3ot.disastermod.handlers.ServerHandler;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.HoverEvent;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -107,7 +109,7 @@ public interface AbstractEvent {
 
     /**
      * The conflictsWith parameter disables conflicting events by replacing any active ones with the new event.
-     * For example, {@link MoonGravityEvent} and {@link NoGravityEvent},
+     * For example, {@link LowGravityEvent} and {@link NoGravityEvent},
      * or {@link PitchMaxEventEvent} and {@link PitchMinEventEvent}.
      */
     default boolean conflictsWith(AbstractEvent other) {
@@ -156,12 +158,13 @@ public interface AbstractEvent {
         };
     }
 
-    default void sendEventNotification(ServerLevel level, AbstractEvent event) {
-        level.players().forEach(player -> {
+    default void sendEventNotification(MinecraftServer server, AbstractEvent event) {
+        for (ServerPlayer player : server.getPlayerList().getPlayers()) {
             player.sendSystemMessage(event.getMessage(event));
-            if (ServerHandler.isClientEventSound(player))
+            if (ServerHandler.isClientEventSound(player)) {
                 player.playNotifySound(event.getSound(), SoundSource.MASTER, event.getVolume(), event.getPitch());
-        });
+            }
+        }
     }
 
     /**

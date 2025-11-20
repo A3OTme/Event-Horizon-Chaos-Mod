@@ -13,6 +13,7 @@ import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 
@@ -45,11 +46,15 @@ public class BlindRageEvent implements AbstractEvent, IActiveStateEvent {
 
     @Override
     public void onEnd(ServerLevel level) {
+        level.getServer().getGameRules().getRule(GameRules.RULE_FORGIVE_DEAD_PLAYERS).set(true, level.getServer());
+        level.getServer().getGameRules().getRule(GameRules.RULE_UNIVERSAL_ANGER).set(false, level.getServer());
         this.setInactive();
     }
 
     public static void playerTick(Player player, Level level){
         if(!active) return;
+        level.getServer().getGameRules().getRule(GameRules.RULE_FORGIVE_DEAD_PLAYERS).set(false, level.getServer());
+        level.getServer().getGameRules().getRule(GameRules.RULE_UNIVERSAL_ANGER).set(true, level.getServer());
         if(!Utils.isValidPlayer(player)) return;
         AABB searchBox = getBoundingBoxAroundEntity(player, 24);
         List<LivingEntity> nearbyEntities = level.getEntitiesOfClass(

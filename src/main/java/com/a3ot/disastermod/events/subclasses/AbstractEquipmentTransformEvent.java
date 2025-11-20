@@ -1,9 +1,6 @@
 package com.a3ot.disastermod.events.subclasses;
 
-import com.a3ot.disastermod.Disastermod;
 import com.a3ot.disastermod.data.ModDataComponents;
-import com.a3ot.disastermod.data.ModTags;
-import com.a3ot.disastermod.events.server.ReducedDurabilityEvent;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.core.component.DataComponents;
@@ -12,7 +9,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.CustomData;
-import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 
@@ -80,9 +76,6 @@ public abstract class AbstractEquipmentTransformEvent extends AbstractInventoryE
 
         ItemEnchantments enchantments = stack.getTagEnchantments();
         EnchantmentHelper.setEnchantments(transformed, enchantments);
-
-        ItemAttributeModifiers originalAttributes = stack.getOrDefault(DataComponents.ATTRIBUTE_MODIFIERS, ItemAttributeModifiers.EMPTY);
-        transformed.set(DataComponents.ATTRIBUTE_MODIFIERS, originalAttributes);
 
         return transformed;
     }

@@ -127,7 +127,7 @@ public class CursedVault {
     private static @NotNull VaultConfig getVaultConfig() {
         double activationRange = 4.0;
         double deactivationRange = 4.5;
-        ItemStack keyItem = new ItemStack(Items.DIAMOND_BLOCK, 1);
+        ItemStack keyItem = new ItemStack(Items.DIAMOND_BLOCK.asItem(), 1);
         Optional<ResourceKey<LootTable>> overrideDisplayLootTable = Optional.empty();
         PlayerDetector playerDetector = PlayerDetector.NO_CREATIVE_PLAYERS;
         PlayerDetector.EntitySelector entitySelector = PlayerDetector.EntitySelector.SELECT_FROM_LEVEL;

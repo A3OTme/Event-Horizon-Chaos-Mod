@@ -1,49 +1,39 @@
 package com.a3ot.disastermod.events.server;
 
 import com.a3ot.disastermod.events.AbstractEvent;
+import com.a3ot.disastermod.events.EventSide;
 import com.a3ot.disastermod.events.EventType;
-import com.a3ot.disastermod.events.utils.IActiveStateEvent;
+import com.a3ot.disastermod.handlers.client.ClientVariables;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.FluidState;
 
-public class FluidWalkerEvent implements AbstractEvent, IActiveStateEvent {
-    private static boolean active = false;
-
+public class FluidWalkerEvent implements AbstractEvent {
     @Override
-    public void setActive() {
-        active = true;
+    public void onClientStart(Level level) {
+        ClientVariables.fluidWalker = true;
     }
 
     @Override
-    public void setInactive() {
-        active = false;
-    }
-
-    public static boolean isActive() {
-        return active;
+    public void onClientEnd(Level level) {
+        ClientVariables.fluidWalker = false;
     }
 
     @Override
-    public void onStart(ServerLevel level) {
-        this.setActive();
-    }
-
-    @Override
-    public void onEnd(ServerLevel level) {
-        this.setInactive();
+    public EventSide getSide() {
+        return EventSide.CLIENT;
     }
 
     public static boolean FluidCollision(LivingEntity entity, FluidState fluid){
-        if(!active) return false;
+        if (!ClientVariables.fluidWalker) return false;
         if (!(entity instanceof Player player)) return false;
         if (!player.isSteppingCarefully()
                 && (fluid.is(FluidTags.WATER) || fluid.is(FluidTags.LAVA))) {

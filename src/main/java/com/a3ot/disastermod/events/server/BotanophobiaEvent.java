@@ -76,8 +76,8 @@ public class BotanophobiaEvent implements AbstractEvent, IActiveStateEvent {
         int z = playerPos.getZ();
         int y = playerPos.getY();
         BlockPos.betweenClosedStream(
-                        new BlockPos(x - 1, y - 1, z - 1),
-                        new BlockPos(x + 1, y - 1, z + 1))
+                        new BlockPos(x - 2, y - 1, z - 2),
+                        new BlockPos(x + 2, y - 1, z + 2))
                 .forEach(pos -> {
                     BlockState state = level.getBlockState(pos);
                     if (state.is(ModTags.Blocks.IMPORTANT_BLOCKS) || state.isEmpty() || !state.is(ModTags.Blocks.BOTANOPHOBIA)) return;

@@ -8,11 +8,10 @@ import net.minecraft.world.level.Level;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 
-
 public class LowFPSEvent implements AbstractEvent {
     private static Integer originalFPS = null;
 
-    @OnlyIn(Dist.CLIENT)
+    @OnlyIn(Dist.CLIENT) //todo придумать как вызывать метод в onClientStart и не давать игроку менять значение
     public void onClientTick(Level level) {
         Minecraft mc = Minecraft.getInstance();
         if (originalFPS == null) originalFPS = mc.options.framerateLimit().get();

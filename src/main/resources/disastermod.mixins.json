@@ -9,6 +9,7 @@
     "EntityMixin",
     "PlayerMixin",
     "ServerPlayerMixin",
+    "VaultBlockEntityServerMixin",
     "client.render.RenderTypeHelperMixin"
   ],
   "compatibilityLevel": "JAVA_21",
@@ -17,6 +18,7 @@
     "client.AbstractSoundInstanceMixin",
     "client.FontMixin",
     "client.FontStringRenderOutputMixin",
+    "client.GameNarratorMixin",
     "client.GuiMixin",
     "client.MinecraftMixin",
     "client.SoundEngineMixin",

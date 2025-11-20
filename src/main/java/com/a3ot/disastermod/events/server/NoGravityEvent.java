@@ -29,7 +29,7 @@ public class NoGravityEvent extends AbstractAttributeEvent {
 
     @Override
     public boolean conflictsWith(AbstractEvent other) {
-        return other instanceof MoonGravityEvent;
+        return other instanceof LowGravityEvent;
     }
 
     @Override

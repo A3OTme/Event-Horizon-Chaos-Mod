@@ -25,11 +25,6 @@ public class OldPlayerAnimationEvent implements AbstractEvent {
     }
 
     @Override
-    public double getDefaultDurationMultiplier() {
-        return 4;
-    }
-
-    @Override
     public EventType getType() {
         return EventType.NEUTRAL;
     }

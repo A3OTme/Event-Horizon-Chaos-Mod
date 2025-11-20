@@ -26,7 +26,9 @@ public class ClientVariables {
             onlySwimmingActive,
             shakyCrosshair,
             noTransparency,
-            randomSounds
+            randomSounds,
+            fluidWalker,
+            forceNarrator
                     = false;
 
     @SubscribeEvent
@@ -51,6 +53,8 @@ public class ClientVariables {
         shakyCrosshair =
         noTransparency =
         randomSounds =
+        fluidWalker =
+        forceNarrator =
         false;
     }
 

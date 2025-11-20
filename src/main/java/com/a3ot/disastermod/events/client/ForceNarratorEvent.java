@@ -3,6 +3,7 @@ package com.a3ot.disastermod.events.client;
 import com.a3ot.disastermod.events.AbstractEvent;
 import com.a3ot.disastermod.events.EventSide;
 import com.a3ot.disastermod.events.EventType;
+import com.a3ot.disastermod.handlers.client.ClientVariables;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.NarratorStatus;
@@ -15,7 +16,8 @@ public class ForceNarratorEvent implements AbstractEvent {
 
     @Override
     @OnlyIn(Dist.CLIENT)
-    public void onClientTick(Level level) {
+    public void onClientStart(Level level) {
+        ClientVariables.forceNarrator = true;
         Minecraft mc = Minecraft.getInstance();
         if (originalNarratorStatus == null) originalNarratorStatus = mc.options.narrator().get();
         mc.options.narrator().set(NarratorStatus.ALL);
@@ -24,16 +26,12 @@ public class ForceNarratorEvent implements AbstractEvent {
     @Override
     @OnlyIn(Dist.CLIENT)
     public void onClientEnd(Level level) {
+        ClientVariables.forceNarrator = false;
         Minecraft mc = Minecraft.getInstance();
         if (originalNarratorStatus != null){
             mc.options.narrator().set(originalNarratorStatus);
             originalNarratorStatus = null;
         }
-    }
-
-    @Override
-    public boolean requiresPeriodicClientTick() {
-        return true;
     }
 
     @Override
@@ -48,11 +46,11 @@ public class ForceNarratorEvent implements AbstractEvent {
 
     @Override
     public double getDefaultDurationMultiplier() {
-        return 4;
+        return 3;
     }
 
     @Override
     public EventType getType() {
-        return EventType.NEUTRAL;
+        return EventType.NEGATIVE;
     }
 }

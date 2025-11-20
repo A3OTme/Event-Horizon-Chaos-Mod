@@ -12,7 +12,7 @@ public class LowRenderDistanceEvent implements AbstractEvent {
     private static Integer originalDistance = null;
 
     @OnlyIn(Dist.CLIENT)
-    public void onClientTick(Level level) {
+    public void onClientTick(Level level) { //todo придумать как вызывать метод в onClientStart и не давать игроку менять значение
         Minecraft mc = Minecraft.getInstance();
         if (originalDistance == null) originalDistance = mc.options.renderDistance().get();
         mc.options.renderDistance().set(2);

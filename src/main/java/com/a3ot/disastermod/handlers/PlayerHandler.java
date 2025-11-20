@@ -16,7 +16,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingBreatheEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
-import net.neoforged.neoforge.event.entity.player.BonemealEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerContainerEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
@@ -31,12 +30,13 @@ public class PlayerHandler {
         if (level.isClientSide()) return;
 
         DementiaEvent.playerTick(player);
+        GillsEvent.playerTick(player);
         EnderBloodEvent.playerTick(player, level);
         BotanophobiaEvent.playerTick(player, level);
         FloorIsMagmaEvent.playerTick(player, level);
         NyctophobiaEvent.playerTick(player, level);
         BlindRageEvent.playerTick(player, level);
-        BonemealOnSneakEvent.playerTick(player, level);
+        BonemealCompostEvent.playerTick(player, level);
     }
 
     @SubscribeEvent
@@ -59,7 +59,7 @@ public class PlayerHandler {
         DamageSource damageSource = event.getSource();
         RottingFoodEvent.livingDamage(entity, damageSource);
         EnderBloodEvent.livingDamage(entity);
-        DamageBringsToExplosionEvent.livingDamage(entity);
+        DamageBringsToExplosionEvent.livingDamage(entity, damageSource);
     }
 
     @SubscribeEvent
@@ -74,6 +74,6 @@ public class PlayerHandler {
 
     @SubscribeEvent
     public static void onDrowning(LivingBreatheEvent event) {
-        GillsEvent.Drowning(event);
+        GillsEvent.drowning(event);
     }
 }
