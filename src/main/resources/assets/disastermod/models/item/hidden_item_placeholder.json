@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "disastermod:item/hidden_item_placeholder"
-  }
-}
