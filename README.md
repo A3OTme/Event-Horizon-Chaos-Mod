@@ -31,7 +31,7 @@
 | Russian (Russia) | `ru_ru` | ✅ Full support |
 
 💬 **Want to add your language?**  
-Create a resource pack with your translation or [submit it via feedback](#-feedback)!
+Create a resource pack with your translation or [submit it via feedback](https://bit.ly/eventhorizon-feedback)!
 
 ---
 
@@ -85,7 +85,7 @@ Create a resource pack with your translation or [submit it via feedback](#-feedb
 *Template: Minecraft version, Mod version, Description, Steps to reproduce, Error log*
 
 ✅ **Feature suggestions:**  
-Coming soon!
+[Google Forms](https://bit.ly/eventhorizon-feedback)
 
 ✅ **Love the concept?**  
 Leave a comment to show your support — it helps decide whether development continues!
